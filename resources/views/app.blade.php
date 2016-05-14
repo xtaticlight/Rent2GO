@@ -46,12 +46,12 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#" data-toggle="modal" data-target="#MyModal"><img src="img/kim.jpg"
+                            <li><a href="#" data-toggle="modal" data-target="#MyModal"><img src="assets/img/kim.jpg"
                                                                                             class="img-responsive img-circle"
                                                                                             style="width: 80px; height: 80px"></a>
                             </li>
-                            <li><a href="#">My Rental/s</a></li>
-                            <li><a href="#">My Rent/s</a></li>
+                            <li><a href="./myRental" >My Rental/s</a></li>
+                            <li><a href="./MyRent">My Rent/s</a></li>
                             <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
                         </ul>
                     </li>

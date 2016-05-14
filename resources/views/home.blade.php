@@ -58,7 +58,7 @@
                         <div class="container1">
                             <div class="col-sm-3" style="align-items: center">
                                 <a href="#" data-toggle="modal" data-target="#{{$data['id']}}"><img
-                                            class="img-responsive" src="./assets/img/{{$data['pictures'][0]}}.png"
+                                            class="img-responsive" src="./assets/img/{{$data['pictures'][0]}}.jpg"
                                             style="width: 150px; padding-left: 20px"></a>
                                 <label style="margin-left: 80px;">{{$data['name']}}</label>
                             </div>
@@ -92,13 +92,13 @@
                                                             </ol>
                                                             <div class="carousel-inner">
                                                                 <div class="item active">
-                                                                    <img src="./assets/img/{{$data['pictures'][0]}}.png"
+                                                                    <img src="./assets/img/{{$data['pictures'][0]}}.jpg"
                                                                          width="200px" height="200px;">
                                                                 </div>
                                                                 @foreach($data['pictures'] as $pictures)
 
                                                                     <div class="item">
-                                                                        <img src="./assets/img/{{$pictures}}.png"
+                                                                        <img src="./assets/img/{{$pictures}}.jpg"
                                                                              width="200px"
                                                                              height="200px;">
                                                                     </div>
