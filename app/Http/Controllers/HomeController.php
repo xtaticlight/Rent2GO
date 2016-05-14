@@ -33,28 +33,27 @@ class HomeController extends Controller
     {
         $materials = \App\Material::all();
         // dd($materials);
-        foreach ($materials as $data) {
-            $pictures = \App\Picture::where('material_id', '=', $data['id'])->get();
-
-            // dd($pictures);
-            foreach ($pictures as $picture) {
-                $data2[$picture['id']] = $picture['id'];
+        foreach ($materials as $key => $data) {
+            foreach ($data->pictures as $picture) {
+                $data2[] = $picture->id;
             }
-            $rents = json_decode(json_encode(\App\Renter::where('material_id', '=', $data['id'])->get()), true);
-          //  $rents = array_column($rents, 0);
-         //  dd($rents);
-            $owner = json_decode(json_encode(\App\User::where('id', '=', $rents[0]['user_id'])->get()), true);
-             dd($owner);
-            $data1 = array(
+            foreach ($data->rentees as $renters) {
+                $owner = $renters->user->name;
+            }
+            //  dd($owner);
+            $data1[$data['id']] = array(
                 'name' => $data['name'],
+                'id' => $data['id'],
                 'description' => $data['description'],
                 'available_qty' => $data['available_qty'],
-                'onwnBy' => $owner[0]['name'],
+                'onwnBy' => $owner,
+                'onwnBy' => $owner,
                 'pictures' => $data2
             );
+            $data2 = array();
         }
-        dd($data1);
-        return view('home')->with('material', $materials);
+        //dd($data1);
+        return view('home')->with('materials', $data1);
     }
 
 }

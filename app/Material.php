@@ -8,16 +8,16 @@ class Material extends Model
     //pu
     public function pictures()
     {
-        $this->hasMany('App\Picture');
+        return $this->hasMany('App\Picture');
     }
 
     public function renters()
     {
-        $this->hasMany('App\Renter');
+        return $this->hasMany('App\Renter');
     }
 
     public function rentees()
     {
-        $this->hasMany('App\Rentee');
+        return  $this->hasMany('App\Rentee');
     }
 }

@@ -6,6 +6,6 @@ class Picture extends Model {
 
 	//
     public function material(){
-        $this->belongsTo('App\Material');
+        return $this->belongsTo('App\Material');
     }
 }

@@ -150,7 +150,6 @@
             <div class="item">
                 <img src="img/earn-more-money-this-year-800x453.jpg" width="150%" height="auto">
             </div>
-
         </div>
 
         <a class="left carousel-control" href="#infoCarousel" role="button" data-slide="prev">
