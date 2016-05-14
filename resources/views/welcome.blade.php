@@ -59,7 +59,7 @@
                 {!! Form::submit('Sign in', ['class' => 'btn btn-info']) !!}
             </div>
             <div id="loginform4" class="col-xs-6" style="margin-top: 6px;">
-                <div class="pull-right">
+                <div class="pull-right padding:">
                     {!! Form::button('Sign up', ['class' => 'btn btn-info', 'id' => 'signingup']) !!}
                 </div>
             </div>
@@ -142,14 +142,15 @@
         </ol>
         <div class="carousel-inner">
             <div class="item active">
-                <img src="img/bk.jpg" width="150%" height="auto">
+                <img src="img/rsz_rent-a-car-3.jpg" width="150%" height="auto">
             </div>
             <div class="item">
-                <img src="img/one_person_website.png" width="150%" height="auto">
+                <img src="img/rsz_rent-a-house.jpg" width="150%" height="auto">
             </div>
             <div class="item">
-                <img src="img/earn-more-money-this-year-800x453.jpg" width="150%" height="auto">
+                <img src="img/rsz_rental-classified-india-rental-2.jpg" width="150%" height="auto">
             </div>
+
         </div>
 
         <a class="left carousel-control" href="#infoCarousel" role="button" data-slide="prev">
@@ -169,23 +170,20 @@
         <div class="row">
             <div class="col-sm-4">
                 <img src="img/1.png" class="img-responsive" width="50%" height="auto" align="center" hspace="80">
-                <p class="text-justify">Look for any school materials that you don't need anymore but can still be
-                    useful to anybody
-                    Example: uniforms, books, drawing materials or even notes.
+                <p class="text-justify"><br>Doing Things For You Only #1 Can Do! Rent2GO makes rent transactions easy.
+                    Anything has a value.
                 </p>
             </div>
             <div class="col-sm-4">
                 <img src="img/2.png" class="img-responsive" width="50%" height="auto" align="center" hspace="80">
-                <p class="text-justify">Take a picture of it and post it in this site. And wait for someone to have
-                    interest on your post.
-                    There are so many students that needs a cheap yet still usable school materials.
+                <p class="text-justify"><br>Service You Deserve. People You Trust. Rent2GO provides user verifications to
+                    prevent scams. We are responsible for fail online transactions.
                 </p>
             </div>
             <div class="col-sm-4">
                 <img src="img/3.png" class="img-responsive" width="50%" height="auto" align="center" hspace="80">
-                <p id="copyRight" class="text-justify">If someone get's interested in your post, with the use of our
-                    built-in messenger, you can talk
-                    about your deal. Get money from your old stuffs and you can also help co-students.
+                <p id="copyRight"  class="text-justify" ><style> .text-justify {margin-right:20px;}</style> <br>When you're ready, we're ready. As soon as you decided, we
+                    will make things happen.
                 </p>
             </div>
         </div>
@@ -197,20 +195,29 @@
             <h1>Programmers: </h1>
         </div>
         <div class="col-sm-4">
-            <img src="img/kim.jpg" class="img-responsive img-circle" width="50%" height="auto" align="center"
+            <img src="img/rsz_kim.jpg" class="img-responsive img-circle" width="50%" height="auto" align="center"
                  hspace="80">
-            <p class="text-center">I am The Flash</p>
+            <p class="text-center"><br>I am The Flash. No reactions accepted</p>
         </div>
         <div class="col-sm-4">
-            <img src="img/aldrin.jpg" class="img-responsive img-circle" width="50%" height="auto" align="center"
+            <img src="img/rsz_1eman.JPG" class="img-responsive img-circle" width="50%" height="auto" align="center"
                  hspace="80">
-            <p class="text-center">With Great Power Comes Great Responsibility</p>
-        </div>
-        <div class="col-sm-4">
-            <img src="img/eman.JPG" class="img-responsive img-circle" width="50%" height="auto" align="center"
-                 hspace="80">
-            <p class="text-center text-uppercase">
             <p class="text-center">Winners never Quit, Quitters never Win</p>
+        </div>
+        <div class="col-sm-4">
+            <img src="img/ogs.png" class="img-responsive img-circle" width="50%" height="auto" align="center"
+                 hspace="80">
+            <p class="text-center"><br>Just make things happen. Be positive</p>
+        </div>
+        <div class="col-sm-4" id="marg"><style> #marg{ margin-left:180px;}</style>
+            <img src="img/rsz_kimo.JPG" class="img-responsive img-circle" width="50%" height="auto" align="center"
+                 hspace="80">
+            <p class="text-center"><br>Success is not final, failure is not fatal: it is the courage to continue that counts</p>
+        </div>
+        <div class="col-sm-4">
+            <img src="img/rsz_andrew.JPG" class="img-responsive img-circle" width="50%" height="auto" align="center"
+                 hspace="80">
+            <p class="text-center"><br>Mistakes won't kill us. Just behave and correct it</p>
         </div>
     </div>
 
@@ -219,14 +226,14 @@
 <br><br>
 <footer style="position: fixed;bottom:0;left:0;right:0;height:70px">
     <div class="navbar navbar-inverse">
-        <div class="container">
+        <div class="container"></div> <style> .container{padding-top:10px;}</style>
             <div class="col-sm-6">
                 <div class="navbar-text pull-left">
                     <p>Copy Right &copy; 2016</p>
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="navbar-text pull-right">
+                <div class="navbar-text pull-right ">
                     <a href="#"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-google-plus-square fa-3x" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
