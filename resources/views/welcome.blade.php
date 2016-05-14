@@ -91,7 +91,7 @@
                         <div class="col-md-5 col-lg-5 col-xs-5 col-sm-5" style="padding-right: 5px;padding-left: 0px;">
                             <select name="category" id="" class="form-control">
                                 <option value="">Select Category</option>
-                                <option value="Rooms">Houses</option>
+                                <option value="Rooms">Rooms</option>
                                 <option value="Cars">Cars</option>
                                 <option value="Others">Others</option>
                             </select>
