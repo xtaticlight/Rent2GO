@@ -15,6 +15,12 @@ class CreateRenteesTable extends Migration {
 		Schema::create('rentees', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('user_id');
+			$table->integer('material_id');
+			$table->integer('qty');
+			$table->double('total_due');
+			$table->string('start_of_rent');
+			$table->string('end_of_rent');
 			$table->timestamps();
 		});
 	}
