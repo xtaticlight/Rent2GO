@@ -30,6 +30,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ url('/') }}">Rent2GO</a>
+            <a class="navbar-brand" id = "arrow1" href="#"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

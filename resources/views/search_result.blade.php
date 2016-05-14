@@ -66,8 +66,8 @@
                             <div class="container1">
                                 <div class="col-sm-3" style="align-items: center">
                                     <a href="#" data-toggle="modal" data-target="#{{$data['id']}}"><img
-                                                class="img-responsive" src="./assets/img/{{$data['pictures'][0]}}.png"
-                                                style="width: 150px; padding-left: 20px"></a>
+                                                class="img-responsive" src="./assets/img/{{$data['pictures'][0]}}.jpg"
+                                                style="width: 150px;height: 150px; padding-left: 20px"></a>
                                     <label style="margin-left: 80px;">{{$data['name']}}</label>
                                 </div>
                                 <div class="modal fade modal-info" id="{{$data['id']}}" role="dialog">
@@ -91,7 +91,7 @@
                                                             <label for="" class="label label-primary"> Pictures</label>
                                                             <div id="infoCarousel" class="carousel slide"
                                                                  data-ride="carousel"
-                                                                 data-interval="3000">
+                                                                 data-interval="1000">
                                                                 <ol class="carousel-indicators">
                                                                     <li data-target="#infoCarousel" data-slide-to="0"
                                                                         class="active"></li>

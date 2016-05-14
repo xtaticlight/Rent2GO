@@ -18,6 +18,9 @@ Route::get('home', 'HomeController@home');
 Route::get('getApparels/{$cat}', 'HomeController@SortProduct');
 Route::get('myRental', 'HomeController@myRental');
 Route::post('/delete_item', 'HomeController@deleteItem');
+Route::get('/add_item', 'HomeController@addItem');
+Route::post('/add', 'HomeController@Add');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
