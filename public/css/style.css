@@ -1,0 +1,8 @@
+.master_style
+{ 	
+      background-image: url('../img/line1.png');
+      background-repeat: repeat-x;
+}
+textarea {
+      resize: none;
+}
