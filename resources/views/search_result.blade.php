@@ -58,7 +58,7 @@
                     @if($materials=='')
                         <br><br>
                         <alert class="warning">
-                            <label for="" class="label label-warning" style="font-size: medium;">No result-found :D Try
+                            <label for="" class="label label-default" style="font-size: medium;">No result-found :D Try
                                 Another Keyword.</label>
                         </alert>
                     @else
@@ -95,12 +95,10 @@
                                                                 <ol class="carousel-indicators">
                                                                     <li data-target="#infoCarousel" data-slide-to="0"
                                                                         class="active"></li>
-                                                                    @foreach($data['pictures'] as $pictures)
-                                                                        <?php $i;?>
-                                                                        <li data-target="#infoCarousel"
-                                                                            data-slide-to="{{$i}}></li>
-                                                                            <?php $i++;?>
-                                                                        @enforeach
+                                                                    <li data-target="#infoCarousel"
+                                                                        data-slide-to="1"></li>
+                                                                    <li data-target="#infoCarousel"
+                                                                        data-slide-to="2"></li>
                                                                 </ol>
                                                                 <div class="carousel-inner">
                                                                     <div class="item active">

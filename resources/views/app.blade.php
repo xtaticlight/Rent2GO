@@ -42,6 +42,7 @@
                     <li><a href="#" data-toggle="modal" data-target="#signIn">Login</a></li>
                     <li><a href="{{ url('/auth/register') }}">Sign Me Up</a></li>
                 @else
+                    <li><a href="#"> ID No: <strong>{{ Auth::user()->id }} </strong> </a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
@@ -50,9 +51,12 @@
                                                                                             class="img-responsive img-circle"
                                                                                             style="width: 80px; height: 80px"></a>
                             </li>
-                            <li><a href="./myRental" >My Rental/s</a></li>
-                            <li><a href="./MyRent">My Rent/s</a></li>
-                            <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
+                            <li><a href="./myRental"> <span class="glyphicon glyphicon-folder-close"></span> My
+                                    Rental/s</a></li>
+                            <li><a href="./MyRent"> <span class="glyphicon glyphicon-shopping-cart
+"></span> My Rent/s</a></li>
+                            <li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-log-out
+"></span> Logout</a></li>
                         </ul>
                     </li>
                     <div id="MyModal" class="modal fade" role="dialog">

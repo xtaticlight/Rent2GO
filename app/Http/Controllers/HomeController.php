@@ -89,10 +89,63 @@ class HomeController extends Controller
             $data2 = array();
         }
         //dd($data1);
-        return view('home')->with('materials', $data1);
+        $rents = json_decode(json_encode($rents),true);
+        if ($rents == null) {
+            $data1 = null;
+            return view('home')->with('materials', $data1);
+        } else {
+            return view('home')->with('materials', $data1);
+        }
+
     }
     public function SortProduct($cat){
         dd($cat);
     }
 
+    public function myRental()
+    {
+        $rents = \App\Rent::where('user_id','=',\Auth::user()->id)->get();
+        foreach ($rents as $key => $rent) {
+            foreach ($rent->pictures as $picture) {
+                $data2[] = $picture->id;
+            }
+            $renter = json_decode(json_encode(\App\User::where('id',$rent->RentBy)->get()),true);
+          //  dd($renter);
+            $contact = $rent->user->contactNumber;
+            $email = $rent->user->email;
+            $qty = $rent->qty;
+            $status = $rent->status;
+            $total_due = $rent->total_due;
+            //  dd($owner);
+            $data1[] = array(
+                'name' => $rent->name,
+                'id' => $rent->id,
+                'description' => $rent->description,
+                'contact' => $contact,
+                'email' => $email,
+                'available_qty' => $qty,
+                'status' => $status,
+                'total_due' => $total_due,
+                'RentBy' =>$renter[0]['name'],
+                'pictures' => $data2
+            );
+            $data2 = array();
+        }
+       // dd($data1);
+        $rents = json_decode(json_encode($rents),true);
+        if ($rents == null) {
+            $data1 = null;
+            return view('myRental')->with('materials', $data1);
+        } else {
+            return view('myRental')->with('materials', $data1);
+        }
+
+    }
+
+    public function deleteItem (){
+        $in = \Input::all();
+         $rent = \App\Rent::find($in['id']);
+        $rent->delete();
+        return \Redirect::back();
+    }
 }
