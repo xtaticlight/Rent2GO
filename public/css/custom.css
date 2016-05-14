@@ -1,0 +1,106 @@
+nav{
+    padding-bottom: 8px;
+    padding-top: 5px;
+    color: white;
+}
+button{
+    background: #7029c2;
+    background-image: -webkit-linear-gradient(top, #7029c2, #1580c2);
+    background-image: -moz-linear-gradient(top, #7029c2, #1580c2);
+    background-image: -ms-linear-gradient(top, #7029c2, #1580c2);
+    background-image: -o-linear-gradient(top, #7029c2, #1580c2);
+    background-image: linear-gradient(to bottom, #7029c2, #1580c2);
+    -webkit-border-radius: 2;
+    -moz-border-radius: 2;
+    border-radius: 2px;
+    text-shadow: 1px 1px 3px #666666;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 11px 7px 11px 7px;
+    text-decoration: none;
+}
+
+h2{
+    font-size: 14px;
+    color: #0f0f0f;
+}
+
+.info{
+    color: #0f0f0f;
+
+}
+
+
+
+.info:-webkit-input-placeholder {
+     color: #b5b5b5;
+ }
+
+.info-moz-placeholder {
+    color: #b5b5b5;
+}
+
+.info {
+    background: #f5f5f5;
+    font-size: 1.0rem;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    padding: 13px 10px;
+    width: 230px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 2px 3px rgba( 0, 0, 0, 0.1 );
+    clear: both;
+}
+
+.info:focus {
+    background: #fff;
+    box-shadow: 0 0 0 3px #fff38e, inset 0 2px 3px rgba( 0, 0, 0, 0.2 ), 0px 5px 5px rgba( 0, 0, 0, 0.15 );
+    outline: none;
+}
+
+
+  .container{
+    padding-top: 20px;
+}
+/*.btn1{
+    font-size: 20px;
+    font-family: Tahoma;
+    font-style: oblique;
+}
+.btn2{
+    font-size: 20px;
+    font-family: Tahoma;
+    font-style: oblique;
+    color: #7029c2;
+}*/
+
+
+
+.textox {
+    width: 300px;
+    height: 35px;
+    font-family: Georgia;
+    font-weight: normal;
+    border: solid 2px #00E3E3;
+    padding: 2px;
+    border-radius: 5px;
+    font-size: 12px;
+    background-color: #FFFFFF;
+    outline: none;
+    color: #474747;
+    text-align: left;
+    text-transform: none;
+}
+.textox:hover  {
+    border: 2px solid #FF00D5;
+}
+.textox:focus  {
+    border: solid 2px #000000;
+    box-shadow: inset 0px 1px 2px 0px #9C9C9C;
+}
+.textox:active  {
+    border: solid 2px #0043EB;
+}
