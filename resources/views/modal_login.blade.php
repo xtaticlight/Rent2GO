@@ -28,6 +28,7 @@
                                        href="{{ url('/password/email') }}">Forgot your
                                         password?</a>
                                 </div>
+                                <br>
                                 {!! Form::submit('Log Me Up', ['class' => 'form-control btn-info', 'style' => 'margin-top: 6px']) !!}
                             </div>
                         </form>
@@ -38,7 +39,8 @@
                         <div class="hidden-md col-lg-3 hidden-sm">
                                             <textarea readonly name="body" id="body" cols="50" rows="50"
                                                       class="form-control" style="height: 94px">Not yet a member?&#13;&#10;Sign up for free!&#13;&#10;Earn Money with school stuff you don't use anymore.</textarea>
-                            {!! Form::button('Signup', ['class' => 'form-control btn-info', 'style' => 'margin-top: 6px']) !!}
+
+                            <a class="btn btn-info" href="{{ url('/auth/register') }}" style="margin-top: 7px;"> Sign Me Up</a>
                         </div>
 
                     </div>

@@ -122,6 +122,16 @@
 
 <!--Image Carousel-->
 <div class="container" style="background-color: #dddddd">
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div id="infoCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
         <ol class="carousel-indicators">
             <li data-target="#infoCarousel" data-slide-to="0" class="active"></li>
