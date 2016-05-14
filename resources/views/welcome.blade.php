@@ -91,7 +91,7 @@
                         <div class="col-md-5 col-lg-5 col-xs-5 col-sm-5" style="padding-right: 5px;padding-left: 0px;">
                             <select name="category" id="" class="form-control">
                                 <option value="">Select Category</option>
-                                <option value="Rooms">Rooms</option>
+                                <option value="Apparels">Apparels</option>
                                 <option value="Cars">Cars</option>
                                 <option value="Others">Others</option>
                             </select>
@@ -110,7 +110,7 @@
                 <div class="col-md-3 col-lg-3 col-xs-4 col-sm-4 pull-right">
                     <!--<a class="btn1" type="button" href="#signInCollapse"> Sign In |</a>
                      <a class="btn2" type="button" href="#signUpCollapse"> |Sign Up </a>-->
-                    {!! Form::button('Sign In', ['class' => 'btn btn-info', 'data-toggle' => 'modal', 'data-target' => '#signIn']) !!}
+                    {!! Form::button('Sign Me In', ['class' => 'btn btn-info', 'data-toggle' => 'modal', 'data-target' => '#signIn']) !!}
                     <a role="button" class="btn btn-info" href="{{ url('/auth/register') }}"> Sign Me Up</a>
                 </div>
             </div>

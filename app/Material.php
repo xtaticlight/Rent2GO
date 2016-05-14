@@ -11,13 +11,13 @@ class Material extends Model
         return $this->hasMany('App\Picture');
     }
 
-    public function renters()
+    public function user()
     {
-        return $this->hasMany('App\Renter');
+        return $this->belongsTo('App\User');
     }
 
     public function rentees()
     {
-        return  $this->hasMany('App\Rentee');
+        return  $this->hasOne('App\Rentee');
     }
 }

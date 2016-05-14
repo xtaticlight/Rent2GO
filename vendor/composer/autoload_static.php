@@ -241,6 +241,7 @@ class ComposerStaticInit07c67e5b2dcc4a15b355089c3a55822c
         'CreatePicturesTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_14_071959_create_pictures_table.php',
         'CreateRenteesTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_14_122720_create_rentees_table.php',
         'CreateRentersTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_14_122755_create_renters_table.php',
+        'CreateRentsTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_14_174336_create_rents_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',

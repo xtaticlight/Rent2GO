@@ -9,6 +9,6 @@ class Rentee extends Model {
         return $this->belongsTo('App\User');
     }
     public function material(){
-        return  $this->belongsTo('App\Material');
+        return  $this->hasOne('App\Material');
     }
 }

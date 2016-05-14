@@ -39,26 +39,97 @@
 
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())
-                    <li><a href="#" data-toggle="modal" data-target="#signIn">Sign Me Up</a></li>
-                    <li><a href="{{ url('/auth/register') }}">Register</a></li>
-                    @include('modal_login')
+                    <li><a href="#" data-toggle="modal" data-target="#signIn">Login</a></li>
+                    <li><a href="{{ url('/auth/register') }}">Sign Me Up</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#"><img src="img/kim.jpg" class="img-responsive img-circle" style="width: 80px; height: 80px"></a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#MyModal"><img src="img/kim.jpg"
+                                                                                            class="img-responsive img-circle"
+                                                                                            style="width: 80px; height: 80px"></a>
+                            </li>
                             <li><a href="#">My Rental/s</a></li>
                             <li><a href="#">My Rent/s</a></li>
-                            <li><a href="{{ url('/auth/logout') }}">  <span
-                                            class="glyphicon glyphicon-"></span> Logout</a></li>
+                            <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
                         </ul>
                     </li>
+                    <div id="MyModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Profile</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="img/kim.jpg" class="img-responsive img-circle"
+                                         style="with: 200px; height: 200px; margin-left: 30%"/>
+
+                                    <ul style="list-style-type: none; margin-top: 10px">
+                                        <li><label style="margin-left: 40px">Name:</label><input id="name" type="text"
+                                                                                                 placeholder="Kim Ting"
+                                                                                                 style="margin-left: 62px">
+                                        </li>
+                                        <li><label style="margin-left: 40px">Email:</label><input id="email"
+                                                                                                  type="email"
+                                                                                                  placeholder="kimting@gmail.com"
+                                                                                                  style="margin-left: 65px">
+                                        </li>
+                                        <li><label style="margin-left: 40px">Contac Number:</label><input id="contact"
+                                                                                                          type="text"
+                                                                                                          placeholder="09999999999"
+                                                                                                          style="margin-left: 3px">
+                                        </li>
+                                        <li><label style="margin-left: 40px">Address:</label><input id="address"
+                                                                                                    type="text"
+                                                                                                    placeholder="Kim Ting"
+                                                                                                    style="margin-left: 49px">
+                                        </li>
+                                        <li><label style="margin-left: 40px">Age:</label><input id="age" type="text"
+                                                                                                placeholder="Kim Ting"
+                                                                                                style="margin-left: 76px">
+                                        </li>
+                                        <li><label style="margin-left: 40px">Birthday:</label><input id="birthday"
+                                                                                                     type="text"
+                                                                                                     placeholder="Kim Ting"
+                                                                                                     style="margin-left: 49px">
+                                        </li>
+                                        <li><label style="margin-left: 40px">Gender:</label><input id="gender"
+                                                                                                   type="text"
+                                                                                                   placeholder="Kim Ting"
+                                                                                                   style="margin-left: 55.5px">
+                                        </li>
+                                    </ul>
+                                    <li>
+                                        <div id="Password" class="collapse">
+                                            <ul style="list-style-type: none; margin-top: 10px">
+                                                <li><label style="margin-left: 40px">Old password:</label><input
+                                                            id="old_password" type="password" style="margin-left: 17px">
+                                                </li>
+                                                <li><label style="margin-left: 40px">New password:</label><input
+                                                            id="new_password" type="password"
+                                                            style="margin-left: 9.5px"></li>
+                                                <li><label style="margin-left: 40px">New password:</label><input
+                                                            id="repassword" type="password" style="margin-left: 9.5px">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a href="#" data-toggle="collapse" data-target="#Password">Reset Password</a>
+                                    </li>
+
+                                    <button type="submit" style="margin-left: 53%">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endif
             </ul>
         </div>
     </div>
 </nav>
+@include('modal_login')
 @yield('content')
 
 <!-- Scripts -->

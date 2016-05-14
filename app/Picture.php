@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Picture extends Model {
 
 	//
-    public function material(){
+    public function rent(){
         return $this->belongsTo('App\Material');
     }
 }

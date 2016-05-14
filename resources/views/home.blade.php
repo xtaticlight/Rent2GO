@@ -1,11 +1,40 @@
 @extends('app')
 
 @section('content')
-    <div class="container">
+    <style>
+        search:-webkit-input-placeholder {
+            color: #b5b5b5;
+        }
 
+        search-moz-placeholder {
+            color: #b5b5b5;
+        }
+
+        .search {
+            background: #f5f5f5;
+            font-size: 14px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            border: none;
+            padding: 13px 10px;
+            width: 270px;
+            margin-bottom: 20px;
+            box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.1);
+            clear: both;
+        }
+
+        .search:focus {
+            background: #fff;
+            box-shadow: 0 0 0 3px #fff38e, inset 0 2px 3px rgba(0, 0, 0, 0.2), 0px 5px 5px rgba(0, 0, 0, 0.15);
+            outline: none;
+        }
+    </style>
+
+    <div class="container">
         <div class="row">
-            <div class="col-lg-2">
-                <h1>Categories</h1>
+            <div class="col-sm-2">
+                <h3>Categories</h3>
                 <ul style="list-style: none">
                     <li><a href="#">Rooms</a></li>
                     <li><a href="#">houses</a></li>
@@ -16,15 +45,21 @@
                     <li><a href="#">others</a></li>
                 </ul>
             </div>
-            <div class="col-lg-10">
-                <label style="font-size: larger;font-weight: bold;"> Available For Rent :</label>
+            <div class="col-sm-10">
+                <form class="form-horizontal" role="form" method="POST" action="{{ url('/search_results') }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input class="search" type="search" placeholder="Search here" style="margin-left: 20px"/>
+                    <button type="submit" class="glyphicon glyphicon-search"
+                            style="width: 50px; height: 45px;"></button>
+                </form>
+                <label style="font-size: larger;font-weight: bold;margin-bottom: 30px;"> Available For Rent :</label>
                 <div class="row">
                     @foreach($materials as $data)
                         <div class="container1">
                             <div class="col-sm-3" style="align-items: center">
                                 <a href="#" data-toggle="modal" data-target="#{{$data['id']}}"><img
                                             class="img-responsive" src="./assets/img/{{$data['pictures'][0]}}.png"
-                                            style="width: 300px; padding-left: 20px"></a>
+                                            style="width: 150px; padding-left: 20px"></a>
                                 <label style="margin-left: 80px;">{{$data['name']}}</label>
                             </div>
                             <div class="modal fade modal-info" id="{{$data['id']}}" role="dialog">
@@ -37,52 +72,85 @@
                                             <div class="modal-header">
                                                 <button type="button" class="close"
                                                         data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">Tabo-Tabo</h4>
+                                                <h4 class="modal-title">Item Info</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <form type="hidden" method="post" action="./rentItem{{$data['id']}}"
                                                       id="form1"/>
                                                 <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
-                                                <div id="infoCarousel" class="carousel slide" data-ride="carousel"
-                                                     data-interval="3000">
-                                                    <ol class="carousel-indicators">
-                                                        <li data-target="#infoCarousel" data-slide-to="0"
-                                                            class="active"></li>
-                                                        <li data-target="#infoCarousel" data-slide-to="1"></li>
-                                                        <li data-target="#infoCarousel" data-slide-to="2"></li>
-                                                    </ol>
-                                                    <div class="carousel-inner">
-                                                        <div class="item active">
-                                                            <img src="./assets/img/{{$data['pictures'][0]}}.png"
-                                                                 width="50%" height="auto">
-                                                        </div>
-                                                        @foreach($data['pictures'] as $pictures)
+                                                <div class="col-lg-12">
+                                                    <div class="container col-lg-5" style="height: 300px;">
+                                                        <label for="" class="label label-primary"> Pictures</label>
+                                                        <div id="infoCarousel" class="carousel slide"
+                                                             data-ride="carousel"
+                                                             data-interval="3000">
+                                                            <ol class="carousel-indicators">
+                                                                <li data-target="#infoCarousel" data-slide-to="0"
+                                                                    class="active"></li>
+                                                                <li data-target="#infoCarousel" data-slide-to="1"></li>
+                                                                <li data-target="#infoCarousel" data-slide-to="2"></li>
+                                                            </ol>
+                                                            <div class="carousel-inner">
+                                                                <div class="item active">
+                                                                    <img src="./assets/img/{{$data['pictures'][0]}}.png"
+                                                                         width="200px" height="200px;">
+                                                                </div>
+                                                                @foreach($data['pictures'] as $pictures)
 
-                                                            <div class="item">
-                                                                <img src="./assets/img/{{$pictures}}.png"
-                                                                     width="50%"
-                                                                     height="auto">
+                                                                    <div class="item">
+                                                                        <img src="./assets/img/{{$pictures}}.png"
+                                                                             width="200px"
+                                                                             height="200px;">
+                                                                    </div>
+                                                                @endforeach
                                                             </div>
-                                                        @endforeach
+
+                                                            <a class="left carousel-control" href="#infoCarousel"
+                                                               role="button"
+                                                               data-slide="prev">
+                                                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                                            </a>
+
+                                                            <a class="right carousel-control" href="#infoCarousel"
+                                                               role="button"
+                                                               data-slide="next">
+                                                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                                            </a>
+                                                        </div>
+                                                        <!--Image Carousel-->
                                                     </div>
-
-                                                    <a class="left carousel-control" href="#infoCarousel" role="button"
-                                                       data-slide="prev">
-                                                        <span class="glyphicon glyphicon-chevron-left"></span>
-                                                    </a>
-
-                                                    <a class="right carousel-control" href="#infoCarousel" role="button"
-                                                       data-slide="next">
-                                                        <span class="glyphicon glyphicon-chevron-right"></span>
-                                                    </a>
+                                                    <div class="container col-lg-7">
+                                                        <label for="" class="label label-primary">Descriptions :</label>
+                                                        <ul>
+                                                            <li>{{$data['description']}}</li>
+                                                        </ul>
+                                                        <label for="" class="label label-primary">Package Qty :</label>
+                                                        <ul>
+                                                            <li>{{$data['available_qty']}}</li>
+                                                        </ul>
+                                                        <label for="" class="label label-primary">Negotiable Price
+                                                            :</label>
+                                                        <ul>
+                                                            <li>{{$data['total_due']}}</li>
+                                                        </ul>
+                                                        <label for="" class="label label-primary">Way To Rent</label>
+                                                        <ul>
+                                                            <li>Contact via phone - {{$data['contact']}} or email
+                                                                - {{$data['email']}}.
+                                                            </li>
+                                                            <li>Use this ID <u><strong>{{$data['id']}}</strong></u> to
+                                                                refer the item .
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                                <!--Image Carousel-->
                                             </div>
+
                                             <div class="modal-footer">
-                                                <button style="margin-top:10px;" type="submit"
+                                                <button data-dismiss="modal"
                                                         class="btn btn-info"><span
-                                                            class="glyphicon glyphicon-arrow-right"></span>
-                                                    Browse
+                                                            class="glyphicon glyphicon-ok"></span>
+                                                    Ok
                                                 </button>
                                             </div>
                                         </div>
@@ -94,91 +162,7 @@
                     @endforeach
                 </div>
 
-
-                <?php
-                try {
-
-                    // Find out how many items are in the table
-                    $total = $dbh->query('
-        SELECT
-            COUNT(*)
-        FROM
-            table
-    ')->fetchColumn();
-
-                    // How many items to list per page
-                    $limit = 9;
-
-                    // How many pages will there be
-                    $pages = ceil($total / $limit);
-
-                    // What page are we currently on?
-                    $page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
-                            'options' => array(
-                                    'default' => 1,
-                                    'min_range' => 1,
-                            ),
-                    )));
-
-                    // Calculate the offset for the query
-                    $offset = ($page - 1) * $limit;
-
-                    // Some information to display to the user
-                    $start = $offset + 1;
-                    $end = min(($offset + $limit), $total);
-
-                    // The "back" link
-                    $prevlink = ($page > 1) ? '<a href="?page=1" title="First page">&laquo;</a> <a href="?page=' . ($page - 1) . '" title="Previous page">&lsaquo;</a>' : '<span class="disabled">&laquo;</span> <span class="disabled">&lsaquo;</span>';
-
-                    // The "forward" link
-                    $nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1) . '" title="Next page">&rsaquo;</a> <a href="?page=' . $pages . '" title="Last page">&raquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
-
-                    // Display the paging information
-                    echo '<div id="paging"><p>', $prevlink, ' Page ', $page, ' of ', $pages, ' pages, displaying ', $start, '-', $end, ' of ', $total, ' results ', $nextlink, ' </p></div>';
-
-                    // Prepare the paged query
-                    $stmt = $dbh->prepare('
-        SELECT
-            *
-        FROM
-            table
-        ORDER BY
-            name
-        LIMIT
-            :limit
-        OFFSET
-            :offset
-    ');
-
-                    // Bind the query params
-                    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
-                    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
-                    $stmt->execute();
-
-                    // Do we have any results?
-                    if ($stmt->rowCount() > 0) {
-                        // Define how we want to fetch the results
-                        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                        $iterator = new IteratorIterator($stmt);
-
-                        // Display the results
-                        foreach ($iterator as $row) {
-                            echo '<p>', $row['name'], '</p>';
-                        }
-
-                    } else {
-                        echo '<p>No results could be displayed.</p>';
-                    }
-
-                } catch (Exception $e) {
-                    echo '<p>', $e->getMessage(), '</p>';
-                }
-
-                ?>
-
             </div>
-
         </div>
-    </div>
     </div>
 @endsection

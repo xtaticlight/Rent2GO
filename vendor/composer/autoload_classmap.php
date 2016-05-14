@@ -11,6 +11,7 @@ return array(
     'CreatePicturesTable' => $baseDir . '/database/migrations/2016_05_14_071959_create_pictures_table.php',
     'CreateRenteesTable' => $baseDir . '/database/migrations/2016_05_14_122720_create_rentees_table.php',
     'CreateRentersTable' => $baseDir . '/database/migrations/2016_05_14_122755_create_renters_table.php',
+    'CreateRentsTable' => $baseDir . '/database/migrations/2016_05_14_174336_create_rents_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',

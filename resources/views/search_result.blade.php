@@ -1,171 +1,184 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Log In</title>
+@extends('app')
 
-    <!-- Bootstrap -->
-    <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('css/custom.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('css/font-awesome.min.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('css/jasny-bootstrap.min.css')}}" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="{{URL::asset('js/html5shiv.min.js')}}"></script>
-    <script src="{{URL::asset('js/respond.min.js')}}"></script>
-    <![endif]-->
-    <STYLE>
-        .catalog-list .product {
-            border-bottom: 1px solid #B0A060;
-            display: inline-block;
-            vertical-align: top;
-            white-space: normal;
-            position: relative;
-            overflow: hidden;
-            margin: 1em 0;
-            width: 240px;
+@section('content')
+    <style>
+        search:-webkit-input-placeholder {
+            color: #b5b5b5;
         }
-    </STYLE>
-</head>
-<body class="master_style">
-<!--Navbar-->
-<div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
-    <div id="switcher" class="col-xs-12">
-        <img src="{{URL::asset('img/nook.png')}}" style="width: 120px">
-        <div id="loginform1" class="col-xs-12">
-            <h2 style="font-weight: bold">Login</h2>
-        </div>
-        <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <div id="loginform2" class="form-group" style="margin-bottom: 0px;">
-                <div class="col-xs-12">
-                    <!--- Username Field --->
-                    {!! Form::label('email', 'Username:', ['class' => 'sr-only']) !!}
-                    {!! Form::text('email', null, ['class' => 'form-control', 'style' => 'margin-bottom: 6px', 'placeholder' => 'Username']) !!}
-                </div>
-                <div class="col-xs-12">
-                    <!--- Password Field --->
-                    {!! Form::label('password', 'Password:', ['class' => 'sr-only']) !!}
-                    {!! Form::password('password', ['class' => 'form-control', 'style' => 'margin-bottom: 6px', 'placeholder' => 'Password']) !!}
-                </div>
-                <div class="col-xs-6">
-                    <div class="label" style="color: gray;">
-                        <label>
-                            {!! Form::checkbox('remember', '1', null,  ['id' => 'keeplogged']) !!}
-                            Keep me logged in
-                        </label>
-                    </div>
-                    <input type="hidden" name="default_keeplogged" value="0">
-                </div>
-                <div class="col-xs-6" style="margin-top: 3px;">
-                    <a class="label" style="color: gray;" href="/recover">Forgot your password?</a>
-                </div>
-            </div>
-            <div id="loginform3" class="col-xs-6" style="margin-top: 6px;">
-                {!! Form::submit('Sign in', ['class' => 'btn btn-info']) !!}
-            </div>
-            <div id="loginform4" class="col-xs-6" style="margin-top: 6px;">
-                <div class="pull-right">
-                    {!! Form::button('Sign up', ['class' => 'btn btn-info', 'id' => 'signingup']) !!}
-                </div>
-            </div>
-        </form>
 
-    </div>
-</div>
+        search-moz-placeholder {
+            color: #b5b5b5;
+        }
 
-<div class="navbar navbar-default navbar-fixed-top hidden-sm hidden-md hidden-lg">
-    <div class="col-xs-5 col-md-5 col-sm-5" style="padding-left: 10px;"><img src="{{URL::asset('img/nook.png')}}"
-                                                                             style="width: 120px"></div>
-    <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
-</div>
+        .search {
+            background: #f5f5f5;
+            font-size: 14px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            border: none;
+            padding: 13px 10px;
+            width: 270px;
+            margin-bottom: 20px;
+            box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.1);
+            clear: both;
+        }
 
-<nav class="navbar navbar-inverse navbar-stati-top hidden-xs" style="margin-bottom: 0px;">
+        .search:focus {
+            background: #fff;
+            box-shadow: 0 0 0 3px #fff38e, inset 0 2px 3px rgba(0, 0, 0, 0.2), 0px 5px 5px rgba(0, 0, 0, 0.15);
+            outline: none;
+        }
+    </style>
+
     <div class="container">
         <div class="row">
-            <div class="navbar-collapse collapse">
-                <div class="col-md-1 col-lg-1 col-xs-1 col-sm-1 " style="padding-left: 0px;">
-                    <img src="{{URL::asset('img/nook.png')}}" height="35px" width="80px">
-                </div>
-                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4">
-                    <div class="col-md-9 col-lg-9 col-xs-9 col-sm-9" style="padding-right: 5px;padding-left: 0px;">
-                        {!! Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Search Material...']) !!}
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-xs-2 col-sm-2" style="padding-left: 0px;">
-                        {!! Form::button('', ['class' => 'btn glyphicon glyphicon-search']) !!}
-                    </div>
-                </div>
-                <div class="col-md-5 col-lg-6 col-xs-4 col-sm-4">
-
-                </div>
-                <div class="col-md-3 col-lg-3 col-xs-4 col-sm-4 pull-right">
-                    <!--<a class="btn1" type="button" href="#signInCollapse"> Sign In |</a>
-                     <a class="btn2" type="button" href="#signUpCollapse"> |Sign Up </a>-->
-                    {!! Form::button('Sign In', ['class' => 'btn btn-info', 'data-toggle' => 'modal', 'data-target' => '#signIn']) !!}
-                    <a role="button" class="btn btn-info" href="{{ url('/auth/register') }}"> Sign Me Up</a>
-                </div>
+            <div class="col-sm-2">
+                <h3>Categories</h3>
+                <ul style="list-style: none">
+                    <li><a href="#">Rooms</a></li>
+                    <li><a href="#">houses</a></li>
+                    <li><a href="#">Lands</a></li>
+                    <li><a href="#">cars</a></li>
+                    <li><a href="#">clothes</a></li>
+                    <li><a href="#">equipments</a></li>
+                    <li><a href="#">others</a></li>
+                </ul>
             </div>
-            <!--Sign In modal-->
-        @include('modal_login')
-        <!--Sign In modal-->
-        </div>
-    </div>
-</nav>
-<!-- Navbar -->
-
-<!--Image Carousel-->
-<div class="container" style="background-color: #dddddd">
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> No Results, Try another keyword<br><br>
-            <ul>
-            </ul>
-        </div>
-    @endif
-    <label class="label label-success" style="font-size:large"> Search Result</label>
-    <div class="container col-lg-12">
-        <div class="col-lg-2 col-sm-2 col-md-2 col-xs-1" style="size: auto;">
-            <a href="/detail">
-                <img src="{{URL::asset('img/nook.png')}}" alt="{{URL::asset('img/1.jpg')}} ">
+            <div class="col-sm-10">
+                <form class="form-horizontal" role="form" method="POST" action="{{ url('/search_results') }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input class="search" type="search" placeholder="Search here" style="margin-left: 20px"/>
+                    <button type="submit" class="glyphicon glyphicon-search"
+                            style="width: 50px; height: 45px;"></button>
+                </form>
                 <br>
-                <h4 style="margin-left: 100px;">GDFHFHDH</h4>
-            </a>
+                <label style="font-size: larger;font-weight: bold;"> Available For Rent :</label>
+                <div class="row">
+                    @if($materials=='')
+                        <br><br>
+                        <alert class="warning">
+                            <label for="" class="label label-warning" style="font-size: medium;">No result-found :D Try
+                                Another Keyword.</label>
+                        </alert>
+                    @else
+                        @foreach($materials as $data)
+                            <div class="container1">
+                                <div class="col-sm-3" style="align-items: center">
+                                    <a href="#" data-toggle="modal" data-target="#{{$data['id']}}"><img
+                                                class="img-responsive" src="./assets/img/{{$data['pictures'][0]}}.png"
+                                                style="width: 150px; padding-left: 20px"></a>
+                                    <label style="margin-left: 80px;">{{$data['name']}}</label>
+                                </div>
+                                <div class="modal fade modal-info" id="{{$data['id']}}" role="dialog">
+                                    <div class="modal-dialog modal-success">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-dialog modal-md">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Item Info</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form type="hidden" method="post" action="./rentItem{{$data['id']}}"
+                                                          id="form1"/>
+                                                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
+                                                    <div class="col-lg-12">
+                                                        <div class="container col-lg-5" style="height: 300px;">
+                                                            <label for="" class="label label-primary"> Pictures</label>
+                                                            <div id="infoCarousel" class="carousel slide"
+                                                                 data-ride="carousel"
+                                                                 data-interval="3000">
+                                                                <ol class="carousel-indicators">
+                                                                    <li data-target="#infoCarousel" data-slide-to="0"
+                                                                        class="active"></li>
+                                                                    <li data-target="#infoCarousel"
+                                                                        data-slide-to="1"></li>
+                                                                    <li data-target="#infoCarousel"
+                                                                        data-slide-to="2"></li>
+                                                                </ol>
+                                                                <div class="carousel-inner">
+                                                                    <div class="item active">
+                                                                        <img src="./assets/img/{{$data['pictures'][0]}}.png"
+                                                                             width="200px" height="200px;">
+                                                                    </div>
+                                                                    @foreach($data['pictures'] as $pictures)
+
+                                                                        <div class="item">
+                                                                            <img src="./assets/img/{{$pictures}}.png"
+                                                                                 width="200px"
+                                                                                 height="200px;">
+                                                                        </div>
+                                                                    @endforeach
+                                                                </div>
+
+                                                                <a class="left carousel-control" href="#infoCarousel"
+                                                                   role="button"
+                                                                   data-slide="prev">
+                                                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                                                </a>
+
+                                                                <a class="right carousel-control" href="#infoCarousel"
+                                                                   role="button"
+                                                                   data-slide="next">
+                                                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                                                </a>
+                                                            </div>
+                                                            <!--Image Carousel-->
+                                                        </div>
+                                                        <div class="container col-lg-7">
+                                                            <label for="" class="label label-primary">Descriptions
+                                                                :</label>
+                                                            <ul>
+                                                                <li>{{$data['description']}}</li>
+                                                            </ul>
+                                                            <label for="" class="label label-primary">Package Qty
+                                                                :</label>
+                                                            <ul>
+                                                                <li>{{$data['available_qty']}}</li>
+                                                            </ul>
+                                                            <label for="" class="label label-primary">Negotiable Price
+                                                                :</label>
+                                                            <ul>
+                                                                <li>{{$data['total_due']}}</li>
+                                                            </ul>
+                                                            <label for="" class="label label-primary">Way To
+                                                                Rent</label>
+                                                            <ul>
+                                                                <li><Strong>Login first to View the contacts</strong>
+                                                                </li>
+
+                                                                <a role="button" class="btn btn-info"
+                                                                   href="{{ url('/auth/login') }}"> Sign Me Up</a>
+                                                                <a role="button" class="btn btn-info"
+                                                                   href="{{ url('/auth/register') }}"> Sign Me Up</a>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button data-dismiss="modal"
+                                                            class="btn btn-info"><span
+                                                                class="glyphicon glyphicon-ok"></span>
+                                                        Ok
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                </div>
+                @endif
+
+
+            </div>
         </div>
     </div>
-</div>
-<footer style="position: fixed;bottom:0;left:0;right:0;height:70px">
-    <div class="navbar navbar-inverse">
-        <div class="container">
-            <div class="col-sm-6">
-                <div class="navbar-text pull-left">
-                    <p>Copy Right &copy; 2016</p>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="navbar-text pull-right">
-                    <a href="#"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-google-plus-square fa-3x" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-</body>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="{{URL::asset('js/jquery.min.js')}}"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-<script src="{{URL::asset('js/jasny-bootstrap.min.js')}}"></script>
-<script src="{{URL::asset('js/mobilesigning.js')}}"></script>
-</html>
+@endsection

@@ -15,6 +15,7 @@ Route::get('/', 'WelcomeController@index');
 Route::get('/welcome', 'WelcomeController@welcome');
 Route::post('/search_results', 'WelcomeController@SearchResults');
 Route::get('home', 'HomeController@home');
+Route::get('getApparels/{{$cat}}', 'HomeController@SortProduct');
 
 
 Route::controllers([
