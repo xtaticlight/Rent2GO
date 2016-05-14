@@ -13,7 +13,9 @@
 
 Route::get('/', 'WelcomeController@index');
 Route::get('/welcome', 'WelcomeController@welcome');
-Route::get('home', 'HomeController@index');
+Route::post('/search_results', 'WelcomeController@SearchResults');
+Route::get('home', 'HomeController@home');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

@@ -34,6 +34,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 public function renters(){
 		 $this->hasMany('App\Renter');
 	 }
+	
 	public function rentees(){
 		$this->hasMany('App\Rentee');
 	 }

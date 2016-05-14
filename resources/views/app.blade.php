@@ -47,16 +47,18 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
+                            <li><a href="#"><img src="img/kim.jpg" class="img-responsive img-circle" style="width: 80px; height: 80px"></a></li>
+                            <li><a href="#">My Rental/s</a></li>
+                            <li><a href="#">My Rent/s</a></li>
+                            <li><a href="{{ url('/auth/logout') }}">  <span
+                                            class="glyphicon glyphicon-"></span> Logout</a></li>
                         </ul>
                     </li>
-
                 @endif
             </ul>
         </div>
     </div>
 </nav>
-
 @yield('content')
 
 <!-- Scripts -->

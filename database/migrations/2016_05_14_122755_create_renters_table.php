@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRenteesTable extends Migration {
+class CreateRentersTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,16 +12,15 @@ class CreateRenteesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('rentees', function(Blueprint $table)
+		Schema::create('renters', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('user_id');
 			$table->integer('material_id');
 			$table->integer('qty');
 			$table->double('total_due');
-			$table->string('start_of_rent');
-			$table->string('end_of_rent');
-			$table->timestamps();
+			$table->string('status');
+			$table->integer('OwnBy');
 		});
 	}
 
@@ -32,7 +31,7 @@ class CreateRenteesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('rentees');
+		Schema::drop('renters');
 	}
 
 }
