@@ -38,7 +38,8 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input class="search" type="search" placeholder="Search here" style="margin-left: 20px"/>
                     <button type="submit" class="glyphicon glyphicon-search"
-                            style="width: 50px; height: 45px;"></button> &nbsp;&nbsp;
+                            style="width: 50px; height: 45px;"></button>
+                    &nbsp;&nbsp;
                     <a data-toggle="tool-tip" Title="Add Item" href="./add_item" role="button"
                        class=" btn btn-default btn-lg"> <span class="glyphicon glyphicon-plus"></span> </a>
                 </form>
@@ -80,7 +81,7 @@
                             <div class="modal-dialog modal-lg">
 
                                 <!-- Modal content-->
-                                <div class="modal-dialog modal-md">
+                                <div class="modal-dialog modal-lg">
                                     <!-- Modal content-->
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -94,11 +95,11 @@
                                             <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
                                             <input type="hidden" name="id" value="{{$data['id']}}"/>
                                             <div class="col-lg-12">
-                                                <div class="container col-lg-5" style="height: 300px;">
+                                                <div class="container col-lg-7">
                                                     <label for="" class="label label-primary"> Pictures</label>
                                                     <div id="infoCarousel" class="carousel slide"
                                                          data-ride="carousel"
-                                                         data-interval="1000">
+                                                         data-interval="1500">
                                                         <ol class="carousel-indicators">
                                                             <li data-target="#infoCarousel" data-slide-to="0"
                                                                 class="active"></li>
@@ -110,14 +111,14 @@
                                                         <div class="carousel-inner">
                                                             <div class="item active">
                                                                 <img src="./assets/img/{{$data['pictures'][0]}}.jpg"
-                                                                     width="200px" height="200px;">
+                                                                     width="auto" height="auto;">
                                                             </div>
                                                             @foreach($data['pictures'] as $pictures)
 
                                                                 <div class="item">
                                                                     <img src="./assets/img/{{$pictures}}.jpg"
-                                                                         width="200px"
-                                                                         height="200px;">
+                                                                         width="auto"
+                                                                         height="auto;">
                                                                 </div>
                                                             @endforeach
                                                         </div>
@@ -136,7 +137,7 @@
                                                     </div>
                                                     <!--Image Carousel-->
                                                 </div>
-                                                <div class="container col-lg-7">
+                                                <div class="container col-lg-5">
                                                     <label for="" class="label label-primary">Descriptions
                                                         :</label>
                                                     <ul>
@@ -155,16 +156,20 @@
                                                     <label for=""
                                                            class="label label-primary">Availability:</label>
                                                     <ul>
-                                                        <li> Rented By : {{$data['RentBy']}}</li>
+                                                        @if($data['status']=='Available')
+                                                            <li>Item On hand</li>
+                                                        @else
+                                                            <li> Rented By : {{$data['RentBy']}}</li>
+                                                        @endif
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="modal-footer">
-                                            <button data-dismiss="modal" class="btn btn-success"><span
+                                            <a  href ="./edit_item{{$data['id']}}" class="btn btn-success"><span
                                                         class="glyphicon glyphicon-edit"></span>edit
-                                            </button>
+                                            </a>
                                             <button type="submit" class="btn btn-danger"><span
                                                         class="glyphicon glyphicon-remove"></span>Delete
                                             </button>
@@ -181,7 +186,8 @@
     </div>
     </div>
     </div>
+    <script>
+        document.getElementById("arrow1").innerHTML = "  Rentals Properties";
+    </script>
 @endsection
-<script>
 
-</script>

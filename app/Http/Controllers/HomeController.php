@@ -166,8 +166,11 @@ class HomeController extends Controller
     public function deleteItem()
     {
         $in = \Input::all();
+       // dd($in);
         $rent = \App\Rent::find($in['id']);
-        $rent->pictures->delete();
+        foreach($rent->pictures as $picture){
+            $picture->delete();
+        }
         $rent->delete();
         return \Redirect::back();
     }
@@ -176,5 +179,9 @@ class HomeController extends Controller
     {
 
         return view('add_item');
+    }
+    public function editItem($id)
+    {
+        return view('edit_item');
     }
 }

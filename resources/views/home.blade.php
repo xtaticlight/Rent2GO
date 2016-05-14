@@ -29,6 +29,9 @@
             box-shadow: 0 0 0 3px #fff38e, inset 0 2px 3px rgba(0, 0, 0, 0.2), 0px 5px 5px rgba(0, 0, 0, 0.15);
             outline: none;
         }
+        #arrow{
+            font-weight: bolder;
+        }
     </style>
 
     <div class="container">
@@ -69,10 +72,8 @@
                                     <label style="margin-left: 80px;">{{$data['name']}}</label>
                                 </div>
                                 <div class="modal fade modal-info" id="{{$data['id']}}" role="dialog">
-                                    <div class="modal-dialog modal-success">
-
                                         <!-- Modal content-->
-                                        <div class="modal-dialog modal-md">
+                                        <div class="modal-dialog modal-lg">
                                             <!-- Modal content-->
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -85,11 +86,11 @@
                                                           id="form1"/>
                                                     <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
                                                     <div class="col-lg-12">
-                                                        <div class="container col-lg-5" style="height: 300px;">
+                                                        <div class="container col-lg-7" style="height: 300px;">
                                                             <label for="" class="label label-primary"> Pictures</label>
                                                             <div id="infoCarousel" class="carousel slide"
                                                                  data-ride="carousel"
-                                                                 data-interval="1000">
+                                                                 data-interval="1500">
                                                                 <ol class="carousel-indicators">
                                                                     <li data-target="#infoCarousel" data-slide-to="0"
                                                                         class="active"></li>
@@ -101,14 +102,14 @@
                                                                 <div class="carousel-inner">
                                                                     <div class="item active">
                                                                         <img src="./assets/img/{{$data['pictures'][0]}}.jpg"
-                                                                             width="200px" height="200px;">
+                                                                             width="auto" height="auto;">
                                                                     </div>
                                                                     @foreach($data['pictures'] as $pictures)
 
                                                                         <div class="item">
                                                                             <img src="./assets/img/{{$pictures}}.jpg"
-                                                                                 width="200px"
-                                                                                 height="200px;">
+                                                                                 width="auto"
+                                                                                 height="auto;">
                                                                         </div>
                                                                     @endforeach
                                                                 </div>
@@ -127,7 +128,7 @@
                                                             </div>
                                                             <!--Image Carousel-->
                                                         </div>
-                                                        <div class="container col-lg-7">
+                                                        <div class="container col-lg-5">
                                                             <label for="" class="label label-primary">Descriptions
                                                                 :</label>
                                                             <ul>

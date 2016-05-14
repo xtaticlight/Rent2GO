@@ -16,9 +16,23 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('css/custom.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('css/jasny-bootstrap.min.css')}}" rel="stylesheet">
     <![endif]-->
+    <style>
+        .container{
+            background-image: url('../assets/img/line1.png');
+            background-repeat: repeat-x;
+        }
+        #arrow{
+            font-weight: normal;
+        }
+    </style>
 </head>
-<body>
+<body >
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -29,8 +43,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url('/') }}">Rent2GO</a>
-            <a class="navbar-brand" id = "arrow1" href="#"></a>
+           <b> <a id = "arrow" class="navbar-brand" href="{{ url('/') }}">Rent2GO</a></b>
+           <b> <a class="navbar-brand" id = "arrow1" href="#"></a></b>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -137,8 +151,11 @@
 @include('modal_login')
 @yield('content')
 
-<!-- Scripts -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{{URL::asset('js/jquery.min.js')}}"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+<script src="{{URL::asset('js/jasny-bootstrap.min.js')}}"></script>
+<script src="{{URL::asset('js/mobilesigning.js')}}"></script>
 </body>
 </html>

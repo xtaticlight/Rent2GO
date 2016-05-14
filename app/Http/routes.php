@@ -20,6 +20,7 @@ Route::get('myRental', 'HomeController@myRental');
 Route::post('/delete_item', 'HomeController@deleteItem');
 Route::get('/add_item', 'HomeController@addItem');
 Route::post('/add', 'HomeController@Add');
+Route::get('/edit_item{id}', 'HomeController@editItem');
 
 
 Route::controllers([
