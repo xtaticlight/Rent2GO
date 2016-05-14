@@ -54,10 +54,10 @@ return [
 
 		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => '172.30.0.90',
 			'database'  => 'rent2go',
-			'username'  => 'root',
-			'password'  => '',
+			'username'  => 'admin',
+			'password'  => 'admin',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
