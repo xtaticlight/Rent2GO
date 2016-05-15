@@ -63,7 +63,7 @@
                                 @foreach($materials as $data)
                                 <div class="col-lg-3" style="align-items: center">
                                     <a href="#" data-toggle="modal" data-target="#{{$data['id']}}"><img
-                                                class="img-responsive" src="./assets/img/{{$data['pictures'][0]}}.jpg"
+                                                class="img-responsive " src="./assets/img/{{$data['pictures'][0]}}.jpg"
                                                 style="width: 150px;height:150px; padding-left: 20px"></a>
                                     <label style="margin-left: 80px;">{{$data['name']}}</label>
                                 </div>

@@ -192,6 +192,7 @@ class HomeController extends Controller
         $item->category = $in['category'];
         $item->status = $in['status'];
         $item->description = $in['description'];
+        $item->RentBy = $in['rentBy'];
         $item->save();
         return \Redirect::back();
     }
