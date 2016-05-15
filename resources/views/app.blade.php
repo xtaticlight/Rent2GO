@@ -94,7 +94,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#" data-toggle="modal" data-target="#MyModal"><img src="assets/img/kim.jpg"
+                            <li><a href="#" data-toggle="modal" data-target="#MyModal"><img src="assets/img/user-male-shape-in-a-circle--ios-7-interface-symbol_318-35357.png"
                                                                                             class="img-responsive img-circle"
                                                                                             style="width: 80px; height: 80px"></a>
                             </li>
@@ -114,7 +114,7 @@
                                     <h4 class="modal-title">Profile</h4>
                                 </div>
                                 <div class="modal-body" style="background-image: url('assets/img/silver-gradient-background.jpg')">
-                                    <img src="assets/img/kim.jpg" class="img-responsive img-circle"
+                                    <img src="assets/img/user-male-shape-in-a-circle--ios-7-interface-symbol_318-35357.png" class="img-responsive img-circle"
                                          style="with: 200px; height: 200px; margin-left: 30%"/>
 
                                     <ul style="list-style-type: none; margin-top: 10px">
