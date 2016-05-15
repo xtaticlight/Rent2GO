@@ -4,8 +4,8 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-primary">
-				<div class="panel-heading text-center">Sign Up</div>
+			<div class="panel panel-primary" style="border-color: #222222">
+				<div class="panel-heading text-center" style="background-color: #222222">Sign Up</div>
 				<div class="panel-body">
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
@@ -50,7 +50,7 @@
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary form-control">
+								<button type="submit" class="btn btn-primary form-control" style="padding-bottom: 35px; color: #222222">
 									Sign Me Up
 								</button>
 							</div>

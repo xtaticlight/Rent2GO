@@ -154,7 +154,7 @@
                                                                 </li>
 
                                                                 <a role="button" class="btn btn-info"
-                                                                   href="{{ url('/auth/login') }}"> Sign Me Up</a>
+                                                                   href="{{ url('/auth/login') }}"> Sign Me In</a>
                                                                 <a role="button" class="btn btn-info"
                                                                    href="{{ url('/auth/register') }}"> Sign Me Up</a>
                                                             </ul>

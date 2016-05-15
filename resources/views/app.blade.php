@@ -64,7 +64,7 @@
         }
     </style>
 </head>
-<body style="background-image: url('assets/img/colorful-triangles-background_yB0qTG6.jpg')">
+<body style="background-image: url('assets/img/silver-gradient-background.jpg')">
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -113,7 +113,7 @@
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h4 class="modal-title">Profile</h4>
                                 </div>
-                                <div class="modal-body" style="background-image: url('assets/img/colorful-triangles-background_yB0qTG6.jpg')">
+                                <div class="modal-body" style="background-image: url('assets/img/silver-gradient-background.jpg')">
                                     <img src="assets/img/kim.jpg" class="img-responsive img-circle"
                                          style="with: 200px; height: 200px; margin-left: 30%"/>
 
