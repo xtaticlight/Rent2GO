@@ -82,29 +82,32 @@
     <div class="container" style="padding-top: 0">
         <div class="row">
             <div class="navbar-collapse collapse">
-                <div class="col-md-1 col-lg-1 col-xs-1 col-sm-1 " style="padding-left: 0px;">
-                    <img src="{{URL::asset('assets/img/nook.png')}}" height="auto" width="100px">
+                <div class="col-md-5 col-lg-5 col-xs-5 col-sm-7" style="padding-left: 0px;">
+                    <div class="col-md-3 col-lg-3 col-xs-4 col-sm-3" style="padding-left: 0px;">
+                        <img src="{{URL::asset('assets/img/nook.png')}}" height="auto" width="100px">
+                    </div>
+                    <div class="col-md-9 col-lg-9 col-xs-8 col-sm-9" style="padding-top: 15px">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/search_results') }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <div class="col-md-5 col-lg-5 col-xs-5 col-sm-5" style="padding-right: 5px;padding-left: 0px;">
+                                <select name="category" id="" class="form-control">
+                                    <option value="">Select Category</option>
+                                    <option value="Appliances">Appliances</option>
+                                    <option value="Cars">Cars</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+                            <div class="col-md-5 col-lg-5 col-xs-5 col-sm-4" style="padding-right: 5px;padding-left: 0px;">
+                                {!! Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Search Material...']) !!}
+                            </div>
+                            <div class="col-md-2 col-lg-2 col-xs-2 col-sm-2" style="padding-left: 0px;">
+                                <button type="submit" class="btn glyphicon glyphicon-search"></button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4" style="padding-top: 15px">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/search_results') }}">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <div class="col-md-5 col-lg-5 col-xs-5 col-sm-5" style="padding-right: 5px;padding-left: 0px;">
-                            <select name="category" id="" class="form-control">
-                                <option value="">Select Category</option>
-                                <option value="Appliances">Appliances</option>
-                                <option value="Cars">Cars</option>
-                                <option value="Others">Others</option>
-                            </select>
-                        </div>
-                        <div class="col-md-5 col-lg-5 col-xs-5 col-sm-5" style="padding-right: 5px;padding-left: 0px;">
-                            {!! Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Search Material...']) !!}
-                        </div>
-                        <div class="col-md-2 col-lg-2 col-xs-2 col-sm-2" style="padding-left: 0px;">
-                            <button type="submit" class="btn glyphicon glyphicon-search"></button>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-5 col-lg-6 col-xs-4 col-sm-4">
+
+                <div class="col-md-5 col-lg-6 col-xs-4 col-sm-3">
 
                 </div>
                 <div class="col-md-3 col-lg-3 col-xs-4 col-sm-4 pull-right" style="padding-top: 15px">
@@ -122,6 +125,9 @@
 </nav>
 <!-- Navbar -->
 
+<div class="hidden-md hidden-lg hidden-sm col-xs-12">
+    <br><br><br>
+</div>
 <!--Image Carousel-->
 <div class="container" style="background-color: #dddddd">
     @if (count($errors) > 0)
@@ -209,7 +215,7 @@
                  hspace="80">
             <p class="text-center"><br>Just make things happen. Be positive</p>
         </div>
-        <div class="col-sm-4" id="marg"><style> #marg{ margin-left:180px;}</style>
+        <div class="col-sm-4"><style> #marg{ margin-left:180px;}</style>
             <img src="{{URL::asset('assets/img/rsz_kimo.jpg')}}" class="img-responsive img-circle" width="50%" height="auto" align="center"
                  hspace="80">
             <p class="text-center"><br>Success is not final, failure is not fatal: it is the courage to continue that counts</p>
