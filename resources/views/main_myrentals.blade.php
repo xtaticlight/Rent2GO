@@ -15,7 +15,9 @@
             <td>{{$data['available_qty']}}</td>
             <td>{{$data['total_due']}}</td>
             <td><a href="#" data-toggle="modal" data-target="#edit{{$data['id']}}"><span
-                            class="glyphicon glyphicon-edit"></span></a></td>
+                            class="glyphicon glyphicon-edit"></span></a> | <a href="#" data-toggle="modal"
+                                                                              data-target="#delete{{$data['id']}}"><span
+                            class="glyphicon glyphicon-remove"></span></a></td>
         </tr>
         <div class="modal fade modal-info" id="view{{$data['id']}}" role="dialog">
             <div class="modal-dialog modal-lg">
@@ -132,20 +134,22 @@
                             <h4 class="modal-title"> Edit Item</h4>
                         </div>
                         <div class="modal-body">
-                            <form type="hidden" method="post" action="delete_item"
+                            <form type="hidden" method="post" action="edit_item"
                                   id="form1"/>
                             <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
                             <input type="hidden" name="id" value="{{$data['id']}}"/>
                             <div class="container col-lg-12">
                                 <div class="form-group col-lg-6">
                                     <label for="">Name : </label>
-                                    <input name = "name" value = "{{$data['name']}}" type="text" class="form-control">
+                                    <input name="name" value="{{$data['name']}}" type="text" class="form-control">
                                 </div>
                                 <div class="form-group col-lg-6">
                                     <label for="">Category : </label>
                                     <select name="category" id="" class="form-control">
                                         <option value="{{$data['category']}}">{{$data['category']}}</option>
-                                        <option value="Appliance">Appliance<e/option>
+                                        <option value="Appliance">Appliance
+                                            <e
+                                            /option>
                                         <option value="Shoes">Shoes</option>
                                         <option value="House">House</option>
                                         <option value="Others">Others</option>
@@ -161,25 +165,58 @@
                                 </div>
                                 <div class="form-group col-lg-6">
                                     <label for="">Description : </label>
-                                    <textarea type="text" value ="{{$data['description']}}"  class="form-control"></textarea>
+                                    <textarea name="description" type="text" value="{{$data['description']}}"
+                                              class="form-control">{{$data['description']}}</textarea>
                                 </div>
                                 <div class="form-group col-lg-6">
-                                    <input type="text" class="form-control">
+                                    <label for="">Rented By : </label>
+                                    <input type="text" name="rentBy" value="{{$data['RentBy']}}" class="form-control">
                                 </div>
-                                <div class="form-group col-lg-6">
-                                    <input type="text" class="form-control">
-                                </div>
+
 
                             </div>
                         </div>
 
                         <div class="modal-footer">
-                            <a href="./edit_item{{$data['id']}}" class="btn btn-success"><span
-                                        class="glyphicon glyphicon-edit"></span>edit
-                            </a>
-                            <button type="submit" class="btn btn-danger"><span
+                            <button type="submit " class="btn btn-success"><span
+                                        class="glyphicon glyphicon-save"></span>Save
+                            </button>
+
+
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal fade modal-info" id="delete{{$data['id']}}" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+                <div class="modal-dialog modal-lg">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close"
+                                    data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"> Delete Item</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form type="hidden" method="post" action="delete_item"
+                                  id="form1"/>
+                            <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
+                            <input type="hidden" name="id" value="{{$data['id']}}"/>
+                            <div class="container col-lg-12">
+                                <p><strong>Are You Sure you want to delete this item?</strong></p>
+
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit " class="btn btn-danger"><span
                                         class="glyphicon glyphicon-remove"></span>Delete
                             </button>
+
                         </div>
                     </div>
                 </div>

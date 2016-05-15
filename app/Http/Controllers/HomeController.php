@@ -183,8 +183,10 @@ class HomeController extends Controller
 
         return view('add_item');
     }
-    public function editItem($id)
+    public function editItem()
     {
-        return view('edit_item');
+        $in = \Input::all();
+       // $item =
+        dd($in);
     }
 }
