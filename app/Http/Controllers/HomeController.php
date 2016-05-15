@@ -186,7 +186,54 @@ class HomeController extends Controller
     public function editItem()
     {
         $in = \Input::all();
-       // $item =
-        dd($in);
+       // dd($in);
+        $item =\App\Rent::find($in['id']);
+        $item->name = $in['name'];
+        $item->category = $in['category'];
+        $item->status = $in['status'];
+        $item->description = $in['description'];
+        $item->save();
+        return \Redirect::back();
     }
+
+    public function myRent()
+    {
+        $rents = \App\Rent::where('RentBy', '=', \Auth::user()->id)->get();
+        foreach ($rents as $key => $rent) {
+            foreach ($rent->pictures as $picture) {
+                $data2[] = $picture->id;
+            }
+            $renter = json_decode(json_encode(\App\User::where('id', $rent->RentBy)->get()), true);
+            //  dd($renter);
+            $contact = $rent->user->contactNumber;
+            $email = $rent->user->email;
+            $qty = $rent->qty;
+            $status = $rent->status;
+            $total_due = $rent->total_due;
+            //  dd($owner);
+            $data1[] = array(
+                'name' => $rent->name,
+                'id' => $rent->id,
+                'description' => $rent->description,
+                'contact' => $contact,
+                'email' => $email,
+                'available_qty' => $qty,
+                'status' => $status,
+                'category' => $rent->category,
+                'total_due' => $total_due,
+                'RentBy' => $renter[0]['name'],
+                'pictures' => $data2
+            );
+            $data2 = array();
+        }
+        // dd($data1);
+        $rents = json_decode(json_encode($rents), true);
+        if ($rents == null) {
+            $data1 = null;
+            return view('myRents')->with('materials', $data1);
+        } else {
+            return view('myRents')->with('materials', $data1);
+        }
+    }
+
 }
