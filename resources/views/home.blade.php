@@ -57,6 +57,7 @@
                 </form>
                 <label style="font-size: larger;font-weight: bold;margin-bottom: 30px;"> Available For Rent :</label>
                 <div class="row">
+                    {!! $pagination->render() !!}
                     @if($materials=='')
                         <br><br>
                         <alert class="warning">
