@@ -25,7 +25,7 @@
 <!--Navbar-->
 <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
     <div id="switcher" class="col-xs-12">
-        <img src="{{URL::asset('img/nook.png')}}" style="width: 120px">
+        <img src="{{URL::asset('assets/img/nook.png')}}" style="width: 120px">
         <div id="loginform1" class="col-xs-12">
             <h2 style="font-weight: bold">Login</h2>
         </div>
@@ -69,7 +69,7 @@
 </div>
 
 <div class="navbar navbar-default navbar-fixed-top hidden-sm hidden-md hidden-lg">
-    <div class="col-xs-5 col-md-5 col-sm-5" style="padding-left: 10px;"><img src="./assets/img/nook.png"
+    <div class="col-xs-5 col-md-5 col-sm-5" style="padding-left: 10px;"><img src="{{URL::asset('assets/img/nook.png')}}"
                                                                              style="width: 120px"></div>
     <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">
         <span class="icon-bar"></span>
@@ -79,13 +79,13 @@
 </div>
 
 <nav class="navbar navbar-inverse navbar-stati-top hidden-xs" style="margin-bottom: 0px;">
-    <div class="container">
+    <div class="container" style="padding-top: 0">
         <div class="row">
             <div class="navbar-collapse collapse">
                 <div class="col-md-1 col-lg-1 col-xs-1 col-sm-1 " style="padding-left: 0px;">
-                    <img src="./assets/img/nook.png" height="35px" width="80px">
+                    <img src="{{URL::asset('assets/img/nook.png')}}" height="auto" width="100px">
                 </div>
-                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4">
+                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4" style="padding-top: 15px">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/search_results') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="col-md-5 col-lg-5 col-xs-5 col-sm-5" style="padding-right: 5px;padding-left: 0px;">
@@ -107,7 +107,7 @@
                 <div class="col-md-5 col-lg-6 col-xs-4 col-sm-4">
 
                 </div>
-                <div class="col-md-3 col-lg-3 col-xs-4 col-sm-4 pull-right">
+                <div class="col-md-3 col-lg-3 col-xs-4 col-sm-4 pull-right" style="padding-top: 15px">
                     <!--<a class="btn1" type="button" href="#signInCollapse"> Sign In |</a>
                      <a class="btn2" type="button" href="#signUpCollapse"> |Sign Up </a>-->
                     {!! Form::button('Sign Me In', ['class' => 'btn btn-info', 'data-toggle' => 'modal', 'data-target' => '#signIn']) !!}
@@ -115,8 +115,8 @@
                 </div>
             </div>
             <!--Sign In modal-->
-        @include('modal_login')
-        <!--Sign In modal-->
+            @include('modal_login')
+                    <!--Sign In modal-->
         </div>
     </div>
 </nav>
@@ -142,13 +142,13 @@
         </ol>
         <div class="carousel-inner">
             <div class="item active">
-                <img src="./assets/img/s1.jpg" width="150%" height="auto">
+                <img src="{{URL::asset('assets/img/s1.jpg')}}" width="150%" height="auto">
             </div>
             <div class="item">
-                <img src="./assets/img/s2.jpg" width="150%" height="auto">
+                <img src="{{URL::asset('assets/img/s2.jpg')}}" width="150%" height="auto">
             </div>
             <div class="item">
-                <img src="./assets/img/s3.jpg" width="150%" height="auto">
+                <img src="{{URL::asset('assets/img/s3.jpg')}}" width="150%" height="auto">
             </div>
 
         </div>
@@ -169,19 +169,19 @@
         </div>
         <div class="row">
             <div class="col-sm-4">
-                <img src="./assets/img/1.png" class="img-responsive" width="50%" height="auto" align="center" hspace="80">
+                <img src="{{URL::asset('assets/img/1.png')}}" class="img-responsive" width="50%" height="auto" align="center" hspace="80">
                 <p class="text-justify"><br>Doing Things For You Only #1 Can Do! Rent2GO makes rent transactions easy.
                     Anything has a value.
                 </p>
             </div>
             <div class="col-sm-4">
-                <img src="./assets/img/2.png" class="img-responsive" width="50%" height="auto" align="center" hspace="80">
+                <img src="{{URL::asset('assets/img/2.png')}}" class="img-responsive" width="50%" height="auto" align="center" hspace="80">
                 <p class="text-justify"><br>Service You Deserve. People You Trust. Rent2GO provides user verifications to
                     prevent scams. We are responsible for fail online transactions.
                 </p>
             </div>
             <div class="col-sm-4">
-                <img src="./assets/img/3.png" class="img-responsive" width="50%" height="auto" align="center" hspace="80">
+                <img src="{{URL::asset('assets/img/3.png')}}" class="img-responsive" width="50%" height="auto" align="center" hspace="80">
                 <p id="copyRight"  class="text-justify" ><style> .text-justify {margin-right:20px;}</style> <br>When you're ready, we're ready. As soon as you decided, we
                     will make things happen.
                 </p>
@@ -195,27 +195,27 @@
             <h1>Programmers: </h1>
         </div>
         <div class="col-sm-4">
-            <img src="./assets/img/rsz_kim.jpg" class="img-responsive img-circle" width="50%" height="auto" align="center"
+            <img src="{{URL::asset('assets/img/rsz_kim.jpg')}}" class="img-responsive img-circle" width="50%" height="auto" align="center"
                  hspace="80">
             <p class="text-center"><br>I am The Flash. No reactions accepted</p>
         </div>
         <div class="col-sm-4">
-            <img src="./assets/img/rsz_1eman.JPG" class="img-responsive img-circle" width="50%" height="auto" align="center"
+            <img src="{{URL::asset('assets/img/rsz_1eman.jpg')}}" class="img-responsive img-circle" width="50%" height="auto" align="center"
                  hspace="80">
-            <p class="text-center">Winners never Quit, Quitters never Win</p>
+            <p class="text-center"><br>Winners never Quit, Quitters never Win</p>
         </div>
         <div class="col-sm-4">
-            <img src="./assets/img/ogs.png" class="img-responsive img-circle" width="50%" height="auto" align="center"
+            <img src="{{URL::asset('assets/img/ogs.png')}}" class="img-responsive img-circle" width="50%" height="auto" align="center"
                  hspace="80">
             <p class="text-center"><br>Just make things happen. Be positive</p>
         </div>
         <div class="col-sm-4" id="marg"><style> #marg{ margin-left:180px;}</style>
-            <img src="./assets/img/rsz_kimo.JPG" class="img-responsive img-circle" width="50%" height="auto" align="center"
+            <img src="{{URL::asset('assets/img/rsz_kimo.jpg')}}" class="img-responsive img-circle" width="50%" height="auto" align="center"
                  hspace="80">
             <p class="text-center"><br>Success is not final, failure is not fatal: it is the courage to continue that counts</p>
         </div>
         <div class="col-sm-4">
-            <img src="./assets/img/rsz_andrew.JPG" class="img-responsive img-circle" width="50%" height="auto" align="center"
+            <img src="{{URL::asset('assets/img/rsz_andrew.jpg')}}" class="img-responsive img-circle" width="50%" height="auto" align="center"
                  hspace="80">
             <p class="text-center"><br>Mistakes won't kill us. Just behave and correct it</p>
         </div>
@@ -227,19 +227,19 @@
 <footer style="bottom:0;left:0;right:0;height:70px">
     <div class="navbar navbar-inverse">
         <div class="container"></div> <style> .container{padding-top:10px;}</style>
-            <div class="col-sm-6">
-                <div class="navbar-text pull-left">
-                    <p>Copy Right &copy; 2016</p>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="navbar-text pull-right ">
-                    <a href="#"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-google-plus-square fa-3x" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
-                </div>
+        <div class="col-sm-6">
+            <div class="navbar-text pull-left">
+                <p>Copy Right &copy; 2016</p>
             </div>
         </div>
+        <div class="col-sm-6">
+            <div class="navbar-text pull-right ">
+                <a href="#"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-google-plus-square fa-3x" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
     </div>
 </footer>
 </body>
