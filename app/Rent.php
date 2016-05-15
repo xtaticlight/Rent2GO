@@ -15,4 +15,10 @@ class Rent extends Model
     {
         return $this->hasMany('App\Picture');
     }
+
+    public function renter()
+    {
+        return $this->belongsTo('App\User', 'RentBy');
+    }
+
 }

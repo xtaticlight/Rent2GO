@@ -113,7 +113,10 @@ class HomeController extends Controller
             $data1 = null;
             return view('home')->with('materials', $data1);
         } else {
-            return view('home')->with('materials', $data1);
+            $pagination = \App\Rent::where('status','Available')->paginate(1);
+            $pagination->setPath('http://localhost/rent2go/public/home');
+            return view('home')->with('materials', $data1)
+                ->with('pagination',$pagination);
         }
 
     }
@@ -146,6 +149,7 @@ class HomeController extends Controller
                 'email' => $email,
                 'available_qty' => $qty,
                 'status' => $status,
+                'category' => $rent->category,
                 'total_due' => $total_due,
                 'RentBy' => $renter[0]['name'],
                 'pictures' => $data2
@@ -159,8 +163,7 @@ class HomeController extends Controller
             return view('myRental')->with('materials', $data1);
         } else {
             return view('myRental')->with('materials', $data1);
-        }
-
+            }
     }
 
     public function deleteItem()
