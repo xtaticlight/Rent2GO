@@ -32,10 +32,7 @@
                             <h4 class="modal-title">Item Info</h4>
                         </div>
                         <div class="modal-body">
-                            <form type="hidden" method="post" action="delete_item"
-                                  id="form1"/>
-                            <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
-                            <input type="hidden" name="id" value="{{$data['id']}}"/>
+
                             <div class="col-lg-12">
                                 <div class="container col-lg-7">
                                     <label for="" class="label label-primary"> Pictures</label>
@@ -109,16 +106,12 @@
                         </div>
 
                         <div class="modal-footer">
-                            <a href="./edit_item{{$data['id']}}" class="btn btn-success"><span
-                                        class="glyphicon glyphicon-edit"></span>edit
-                            </a>
                             <button type="submit" class="btn btn-danger"><span
-                                        class="glyphicon glyphicon-remove"></span>Delete
+                                        class="glyphicon glyphicon-ok"></span>OK
                             </button>
                         </div>
                     </div>
                 </div>
-                </form>
             </div>
         </div>
 

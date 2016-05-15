@@ -100,7 +100,7 @@
                             </li>
                             <li><a href="./myRental"> <span class="glyphicon glyphicon-folder-close"></span> My
                                     Rental/s</a></li>
-                            <li><a href="./MyRent"> <span class="glyphicon glyphicon-shopping-cart
+                            <li><a href="./myRent"> <span class="glyphicon glyphicon-shopping-cart
 "></span> My Rent/s</a></li>
                             <li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-log-out
 "></span> Logout</a></li>
