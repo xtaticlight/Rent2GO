@@ -197,6 +197,21 @@ class HomeController extends Controller
         return \Redirect::back();
     }
 
+
+    public function editProf()
+    {
+        $in = \Input::all();
+         dd($in);
+        $item =\App\Rent::find($in['id']);
+        $item->name = $in['name'];
+        $item->category = $in['category'];
+        $item->status = $in['status'];
+        $item->description = $in['description'];
+        $item->RentBy = $in['rentBy'];
+        $item->save();
+        return \Redirect::back();
+    }
+
     public function myRent()
     {
         $rents = \App\Rent::where('RentBy', '=', \Auth::user()->id)->get();

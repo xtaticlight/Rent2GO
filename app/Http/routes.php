@@ -22,6 +22,7 @@ Route::post('/delete_item', 'HomeController@deleteItem');
 Route::get('/add_item', 'HomeController@addItem');
 Route::post('/add', 'HomeController@Add');
 Route::post('/edit_item', 'HomeController@editItem');
+Route::post('/edit_prof', 'HomeController@editProf');
 
 
 Route::controllers([

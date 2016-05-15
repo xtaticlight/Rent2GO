@@ -23,21 +23,21 @@
     <link href="{{URL::asset('css/jasny-bootstrap.min.css')}}" rel="stylesheet">
     <![endif]-->
     <style>
-        .dap_text_box
-        {
-            background:#F0F0F0;
-            color:#787171;
-            border:2px solid #8F8989;
-            border-radius:9px ;
-            font-size:12px ;
-            height: 20px ;
-            line-height:20px ;
-            width: 217px ;
-            padding: 9px ;
+        .dap_text_box {
+            background: #F0F0F0;
+            color: #787171;
+            border: 2px solid #8F8989;
+            border-radius: 9px;
+            font-size: 12px;
+            height: 20px;
+            line-height: 20px;
+            width: 217px;
+            padding: 9px;
             box-shadow: 0px 1px 0px #A3A0A0;
             -webkit-box-shadow: 0px 1px 0px #A3A0A0;
             -moz-box-shadow: 0px 1px 0px #A3A0A0;
         }
+
         .btn {
             -webkit-border-radius: 28;
             -moz-border-radius: 28;
@@ -56,10 +56,11 @@
             text-decoration: none;
         }
 
-        #arrow{
+        #arrow {
             font-weight: normal;
         }
-        a{
+
+        a {
             color: #0f0f0f;
         }
     </style>
@@ -75,8 +76,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-           <b> <a id = "arrow" class="navbar-brand" href="{{ url('/') }}">Rent2GO</a></b>
-           <b> <a class="navbar-brand" id = "arrow1" href="#"></a></b>
+            <b> <a id="arrow" class="navbar-brand" href="{{ url('/') }}">Rent2GO</a></b>
+            <b> <a class="navbar-brand" id="arrow1" href="#"></a></b>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -113,65 +114,71 @@
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h4 class="modal-title">Profile</h4>
                                 </div>
-                                <div class="modal-body" style="background-image: url('assets/img/silver-gradient-background.jpg')">
+                                <div class="modal-body"
+                                     style="background-image: url('assets/img/silver-gradient-background.jpg')">
+                                    <form type="hidden" method="post" action="edit_prof"
+                                          id="form1"/>
+                                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
                                     <img src="assets/img/kim.jpg" class="img-responsive img-circle"
                                          style="with: 200px; height: 200px; margin-left: 30%"/>
 
                                     <ul style="list-style-type: none; margin-top: 10px">
-                                        <li><label style="margin-left: 40px">Name:</label><input id="name" type="text"
-                                                                                                 placeholder="Kim Ting"
-                                                                                                 style="margin-left: 62px" class="dap_text_box">
+                                        <li><label style="margin-left: 40px">Name:</label><input name="name" type="text"
+                                                                                                 value = "{{Auth::user()->name}}"
+                                                                                                 style="margin-left: 62px"
+                                                                                                 class="dap_text_box">
                                         </li>
-                                        <li><label style="margin-left: 40px">Email:</label><input id="email"
+                                        <li><label style="margin-left: 40px">Email:</label><input name="email"
                                                                                                   type="email"
-                                                                                                  placeholder="kimting@gmail.com"
-                                                                                                  style="margin-left: 65px" class="dap_text_box">
+                                                                                                  value = "{{Auth::user()->email}}"
+                                                                                                  style="margin-left: 65px"
+                                                                                                  class="dap_text_box">
                                         </li>
-                                        <li><label style="margin-left: 40px">Contac Number:</label><input id="contact"
+                                        <li><label style="margin-left: 40px">Contac Number:</label><input name="contact"
                                                                                                           type="text"
-                                                                                                          placeholder="09999999999"
-                                                                                                          style="margin-left: 3px" class="dap_text_box">
+                                                                                                          value = "{{Auth::user()->contactNumber}}"
+                                                                                                          style="margin-left: 3px"
+                                                                                                          class="dap_text_box">
                                         </li>
-                                        <li><label style="margin-left: 40px">Address:</label><input id="address"
+                                        <li><label style="margin-left: 40px">Address:</label><input name="address"
                                                                                                     type="text"
-                                                                                                    placeholder="Kim Ting"
-                                                                                                    style="margin-left: 49px" class="dap_text_box">
+                                                                                                    value = "{{Auth::user()->Address}}"
+                                                                                                    style="margin-left: 49px"
+                                                                                                    class="dap_text_box">
                                         </li>
-                                        <li><label style="margin-left: 40px">Age:</label><input id="age" type="text"
-                                                                                                placeholder="Kim Ting"
-                                                                                                style="margin-left: 76px" class="dap_text_box">
+                                        <li><label style="margin-left: 40px">Age:</label><input name="age" type="text"
+                                                                                                value = "{{Auth::user()->Age}}"
+                                                                                                style="margin-left: 76px"
+                                                                                                class="dap_text_box">
                                         </li>
-                                        <li><label style="margin-left: 40px">Birthday:</label><input id="birthday"
+                                        <li><label style="margin-left: 40px">Birthday:</label><input name="birthday"
                                                                                                      type="text"
-                                                                                                     placeholder="Kim Ting"
-                                                                                                     style="margin-left: 49px" class="dap_text_box">
+                                                                                                     value = "{{Auth::user()->Birthdate}}"
+                                                                                                     style="margin-left: 49px"
+                                                                                                     class="dap_text_box">
                                         </li>
-                                        <li><label style="margin-left: 40px">Gender:</label><input id="gender"
-                                                                                                   type="text"
-                                                                                                   placeholder="Kim Ting"
-                                                                                                   style="margin-left: 55.5px" class="dap_text_box">
+                                        <li><label style="margin-left: 40px">Gender:</label><input name="gender"type="text"
+                                                                                                   value = "{{Auth::user()->Gender}}"
+                                                                                                   style="margin-left: 55.5px"
+                                                                                                   class="dap_text_box">
                                         </li>
                                     </ul>
                                     <li>
                                         <div id="Password" class="collapse">
                                             <ul style="list-style-type: none; margin-top: 10px">
-                                                <li><label style="margin-left: 40px">Old password:</label><input
-                                                            id="old_password" type="password" style="margin-left: 17px" class="dap_text_box">
-                                                </li>
                                                 <li><label style="margin-left: 40px">New password:</label><input
-                                                            id="new_password" type="password"
-                                                            style="margin-left: 9.5px" class="dap_text_box"></li>
-                                                <li><label style="margin-left: 40px">New password:</label><input
-                                                            id="repassword" type="password" style="margin-left: 9.5px" class="dap_text_box">
+                                                            name="password" type="password" style="margin-left: 17px"
+                                                            class="dap_text_box">
                                                 </li>
                                             </ul>
                                         </div>
                                     </li>
-                                    <li><a href="#" data-toggle="collapse" data-target="#Password" style="margin-left: 80px">Reset Password</a>
+                                    <li><a href="#" data-toggle="collapse" data-target="#Password"
+                                           style="margin-left: 80px">Reset Password</a>
                                     </li>
-
                                     <button type="submit" style="margin-left: 53%" class="btn">Save</button>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
