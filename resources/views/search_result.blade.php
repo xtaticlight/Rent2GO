@@ -65,8 +65,9 @@
                                 Another Keyword.</label>
                         </alert>
                     @else
-                        @foreach($materials as $data)
+
                             <div class="container1">
+                                @foreach($materials as $data)
                                 <div class="col-sm-3" style="align-items: center">
                                     <a href="#" data-toggle="modal" data-target="#{{$data['id']}}"><img
                                                 class="img-responsive" src="./assets/img/{{$data['pictures'][0]}}.jpg"
@@ -85,8 +86,8 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <form type="hidden" method="post" action="./rentItem{{$data['id']}}"
-                                                          id="form1"/>
-                                                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
+                                                          id="form1"></form>
+                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}}"/>
                                                     <div class="col-lg-12">
                                                         <div class="container col-lg-7" style="height: 300px;">
                                                             <label for="" class="label label-primary"> Pictures</label>
@@ -172,9 +173,11 @@
                                         </div>
                                         </form>
                                     </div>
+                                @endforeach
                                 </div>
+
                             </div>
-                        @endforeach
+
                 </div>
                 @endif
 
