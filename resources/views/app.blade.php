@@ -23,16 +23,48 @@
     <link href="{{URL::asset('css/jasny-bootstrap.min.css')}}" rel="stylesheet">
     <![endif]-->
     <style>
-        .container{
-            background-image: url('../assets/img/line1.png');
-            background-repeat: repeat-x;
+        .dap_text_box
+        {
+            background:#F0F0F0;
+            color:#787171;
+            border:2px solid #8F8989;
+            border-radius:9px ;
+            font-size:12px ;
+            height: 20px ;
+            line-height:20px ;
+            width: 217px ;
+            padding: 9px ;
+            box-shadow: 0px 1px 0px #A3A0A0;
+            -webkit-box-shadow: 0px 1px 0px #A3A0A0;
+            -moz-box-shadow: 0px 1px 0px #A3A0A0;
         }
+        .btn {
+            -webkit-border-radius: 28;
+            -moz-border-radius: 28;
+            border-radius: 28px;
+            font-family: Arial;
+            color: #fcfcfc;
+            font-size: 22px;
+            background: #83878a;
+            padding: 10px 20px 10px 20px;
+            border: solid #636566 2px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #b4b7b8;
+            text-decoration: none;
+        }
+
         #arrow{
             font-weight: normal;
         }
+        a{
+            color: #0f0f0f;
+        }
     </style>
 </head>
-<body >
+<body style="background-image: url('assets/img/colorful-triangles-background_yB0qTG6.jpg')">
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -81,64 +113,64 @@
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h4 class="modal-title">Profile</h4>
                                 </div>
-                                <div class="modal-body">
-                                    <img src="img/kim.jpg" class="img-responsive img-circle"
+                                <div class="modal-body" style="background-image: url('assets/img/colorful-triangles-background_yB0qTG6.jpg')">
+                                    <img src="assets/img/kim.jpg" class="img-responsive img-circle"
                                          style="with: 200px; height: 200px; margin-left: 30%"/>
 
                                     <ul style="list-style-type: none; margin-top: 10px">
                                         <li><label style="margin-left: 40px">Name:</label><input id="name" type="text"
                                                                                                  placeholder="Kim Ting"
-                                                                                                 style="margin-left: 62px">
+                                                                                                 style="margin-left: 62px" class="dap_text_box">
                                         </li>
                                         <li><label style="margin-left: 40px">Email:</label><input id="email"
                                                                                                   type="email"
                                                                                                   placeholder="kimting@gmail.com"
-                                                                                                  style="margin-left: 65px">
+                                                                                                  style="margin-left: 65px" class="dap_text_box">
                                         </li>
                                         <li><label style="margin-left: 40px">Contac Number:</label><input id="contact"
                                                                                                           type="text"
                                                                                                           placeholder="09999999999"
-                                                                                                          style="margin-left: 3px">
+                                                                                                          style="margin-left: 3px" class="dap_text_box">
                                         </li>
                                         <li><label style="margin-left: 40px">Address:</label><input id="address"
                                                                                                     type="text"
                                                                                                     placeholder="Kim Ting"
-                                                                                                    style="margin-left: 49px">
+                                                                                                    style="margin-left: 49px" class="dap_text_box">
                                         </li>
                                         <li><label style="margin-left: 40px">Age:</label><input id="age" type="text"
                                                                                                 placeholder="Kim Ting"
-                                                                                                style="margin-left: 76px">
+                                                                                                style="margin-left: 76px" class="dap_text_box">
                                         </li>
                                         <li><label style="margin-left: 40px">Birthday:</label><input id="birthday"
                                                                                                      type="text"
                                                                                                      placeholder="Kim Ting"
-                                                                                                     style="margin-left: 49px">
+                                                                                                     style="margin-left: 49px" class="dap_text_box">
                                         </li>
                                         <li><label style="margin-left: 40px">Gender:</label><input id="gender"
                                                                                                    type="text"
                                                                                                    placeholder="Kim Ting"
-                                                                                                   style="margin-left: 55.5px">
+                                                                                                   style="margin-left: 55.5px" class="dap_text_box">
                                         </li>
                                     </ul>
                                     <li>
                                         <div id="Password" class="collapse">
                                             <ul style="list-style-type: none; margin-top: 10px">
                                                 <li><label style="margin-left: 40px">Old password:</label><input
-                                                            id="old_password" type="password" style="margin-left: 17px">
+                                                            id="old_password" type="password" style="margin-left: 17px" class="dap_text_box">
                                                 </li>
                                                 <li><label style="margin-left: 40px">New password:</label><input
                                                             id="new_password" type="password"
-                                                            style="margin-left: 9.5px"></li>
+                                                            style="margin-left: 9.5px" class="dap_text_box"></li>
                                                 <li><label style="margin-left: 40px">New password:</label><input
-                                                            id="repassword" type="password" style="margin-left: 9.5px">
+                                                            id="repassword" type="password" style="margin-left: 9.5px" class="dap_text_box">
                                                 </li>
                                             </ul>
                                         </div>
                                     </li>
-                                    <li><a href="#" data-toggle="collapse" data-target="#Password">Reset Password</a>
+                                    <li><a href="#" data-toggle="collapse" data-target="#Password" style="margin-left: 80px">Reset Password</a>
                                     </li>
 
-                                    <button type="submit" style="margin-left: 53%">Save</button>
+                                    <button type="submit" style="margin-left: 53%" class="btn">Save</button>
                                 </div>
                             </div>
                         </div>

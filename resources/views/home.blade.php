@@ -2,13 +2,7 @@
 
 @section('content')
     <style>
-        search:-webkit-input-placeholder {
-            color: #b5b5b5;
-        }
 
-        search-moz-placeholder {
-            color: #b5b5b5;
-        }
 
         .search {
             background: #f5f5f5;
@@ -63,8 +57,9 @@
                             <label for="" class="label label-default" style="font-size: medium;">No Available Items :D</label>
                         </alert>
                     @else
-                        @foreach($materials as $data)
+
                             <div class="container1">
+                                @foreach($materials as $data)
                                 <div class="col-lg-3" style="align-items: center">
                                     <a href="#" data-toggle="modal" data-target="#{{$data['id']}}"><img
                                                 class="img-responsive" src="./assets/img/{{$data['pictures'][0]}}.jpg"
@@ -83,8 +78,8 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <form type="hidden" method="post" action="./rentItem{{$data['id']}}"
-                                                          id="form1"/>
-                                                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
+                                                          id="form1"></form>
+                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}}"/>
                                                     <div class="col-lg-12">
                                                         <div class="container col-lg-7" style="height: 300px;">
                                                             <label for="" class="label label-primary"> Pictures</label>
@@ -164,15 +159,18 @@
                                                             class="btn btn-info"><span
                                                                 class="glyphicon glyphicon-ok"></span>
                                                         Ok
-                                                    </button>
+                                                    </button >
                                                 </div>
                                             </div>
                                         </div>
                                         </form>
+
                                     </div>
+                                @endforeach
                                 </div>
+
                             </div>
-                        @endforeach
+
                     @endif
                 </div>
 
