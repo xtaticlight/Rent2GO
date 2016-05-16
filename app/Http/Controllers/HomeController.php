@@ -80,43 +80,14 @@ class HomeController extends Controller
 
     public function home()
     {
-        $rents = \App\Rent::where('status', '=', 'available')->get();
-        // dd($materials);
-        foreach ($rents as $key => $rent) {
-            foreach ($rent->pictures as $picture) {
-                $data2[] = $picture->id;
-            }
-            $owner = $rent->user->name;
-            $contact = $rent->user->contactNumber;
-            $email = $rent->user->email;
-            $qty = $rent->available_qty;
-            $status = $rent->status;
-            $total_due = $rent->total_due;
-            //  dd($owner);
-            $data1[] = array(
-                'name' => $rent->name,
-                'id' => $rent->id,
-                'description' => $rent->description,
-                'contact' => $contact,
-                'email' => $email,
-                'available_qty' => $qty,
-                'status' => $status,
-                'total_due' => $total_due,
-                'onwnBy' => $owner,
-                'pictures' => $data2
-            );
-            $data2 = array();
-        }
+        $pagination = \App\Rent::where('status','Available')->paginate(8);
+        $pagination->setPath('http://localhost/rent2go/public/home');
         //dd($data1);
-        $rents = json_decode(json_encode($rents), true);
-        if ($rents == null) {
-            $data1 = null;
-            return view('home')->with('materials', $data1);
+        if ($pagination == null) {
+            $pagination = null;
+            return view('home')->with('pagination', $pagination);
         } else {
-            $pagination = \App\Rent::where('status','Available')->paginate(1);
-            $pagination->setPath('http://localhost/rent2go/public/home');
-            return view('home')->with('materials', $data1)
-                ->with('pagination',$pagination);
+            return view('home')->with('pagination',$pagination);
         }
 
     }

@@ -52,20 +52,21 @@
                 <label style="font-size: larger;font-weight: bold;margin-bottom: 30px;"> Available For Rent :</label>
                 <div class="row">
                     {!! $pagination->render() !!}
-                    @if($materials=='')
+                    @if($pagination=='')
                         <br><br>
                         <alert class="warning">
                             <label for="" class="label label-default" style="font-size: medium;">No Available Items :D</label>
                         </alert>
                     @else
 
-                            <div class="container1">
-                                @foreach($materials as $data)
-                                <div class="col-lg-3" style="align-items: center">
+                            <div class="container col-lg-12">
+                                @foreach($pagination as $data)
+                                <div class="col-lg-3" style="align-items: center; margin-bottom: 30px;">
                                     <a href="#" data-toggle="modal" data-target="#{{$data['id']}}"><img
-                                                class="img-responsive " src="./assets/img/{{$data['pictures'][0]}}.jpg"
-                                                style="width: 150px;height:150px; padding-left: 20px"></a>
-                                    <label style="margin-left: 80px;">{{$data['name']}}</label>
+                                                class="img-responsive " src="./assets/img/{{$data['pictures']['0']['id']}}.jpg"
+                                                style="width: 150px;height:150px">
+                                    <label style="margin-left: 20px;">{{$data['name']}}</label>
+                                    </a>
                                 </div>
                                 <div class="modal fade modal-info" id="{{$data['id']}}" role="dialog">
                                         <!-- Modal content-->
@@ -84,39 +85,39 @@
                                                     <div class="col-lg-12">
                                                         <div class="container col-lg-7" style="height: 300px;">
                                                             <label for="" class="label label-primary"> Pictures</label>
-                                                            <div id="infoCarousel" class="carousel slide"
+                                                            <div id="infoCarousel{{$data['id']}}" class="carousel slide"
                                                                  data-ride="carousel"
                                                                  data-interval="1500">
                                                                 <ol class="carousel-indicators">
-                                                                    <li data-target="#infoCarousel" data-slide-to="0"
+                                                                    <li data-target="#infoCarousel{{$data['id']}}" data-slide-to="0"
                                                                         class="active"></li>
-                                                                    <li data-target="#infoCarousel"
+                                                                    <li data-target="#infoCarousel{{$data['id']}}"
                                                                         data-slide-to="1"></li>
-                                                                    <li data-target="#infoCarousel"
+                                                                    <li data-target="#infoCarousel{{$data['id']}}"
                                                                         data-slide-to="2"></li>
                                                                 </ol>
                                                                 <div class="carousel-inner">
                                                                     <div class="item active">
-                                                                        <img src="./assets/img/{{$data['pictures'][0]}}.jpg"
+                                                                        <img src="./assets/img/{{$data['pictures'][0]['id']}}.jpg"
                                                                              width="auto" height="auto;">
                                                                     </div>
                                                                     @foreach($data['pictures'] as $pictures)
 
                                                                         <div class="item">
-                                                                            <img src="./assets/img/{{$pictures}}.jpg"
+                                                                            <img src="./assets/img/{{$pictures['id']}}.jpg"
                                                                                  width="auto"
                                                                                  height="auto;">
                                                                         </div>
                                                                     @endforeach
                                                                 </div>
 
-                                                                <a class="left carousel-control" href="#infoCarousel"
+                                                                <a class="left carousel-control" href="#infoCarousel{{$data['id']}}"
                                                                    role="button"
                                                                    data-slide="prev">
                                                                     <span class="glyphicon glyphicon-chevron-left"></span>
                                                                 </a>
 
-                                                                <a class="right carousel-control" href="#infoCarousel"
+                                                                <a class="right carousel-control" href="#infoCarousel{{$data['id']}}"
                                                                    role="button"
                                                                    data-slide="next">
                                                                     <span class="glyphicon glyphicon-chevron-right"></span>

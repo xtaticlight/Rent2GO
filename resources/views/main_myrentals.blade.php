@@ -1,4 +1,5 @@
-<table class="table table-hover col-lg-12 col-md-12 col-xs-12">
+
+<table class="table table-hover col-lg-12 col-md-12 col-xs-12 results">
     <thead>
     <!-- <th>Date</th>--->
     <th>Name</th>
@@ -6,6 +7,9 @@
     <th>Qty</th>
     <th>Amount</th>
     <th>Action</th>
+    <tr class="warning no-result">
+        <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+    </tr>
     </thead>
     <tbody>
     @foreach($materials as $data)
@@ -220,3 +224,4 @@
     @endforeach
     </tbody>
 </table>
+

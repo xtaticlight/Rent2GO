@@ -31,15 +31,15 @@
                             <div class="col-lg-12">
                                 <div class="container col-lg-7">
                                     <label for="" class="label label-primary"> Pictures</label>
-                                    <div id="infoCarousel" class="carousel slide"
+                                    <div id="infoCarousel{{$data['id']}}" class="carousel slide"
                                          data-ride="carousel"
                                          data-interval="1500">
                                         <ol class="carousel-indicators">
-                                            <li data-target="#infoCarousel" data-slide-to="0"
+                                            <li data-target="#infoCarousel{{$data['id']}}" data-slide-to="0"
                                                 class="active"></li>
-                                            <li data-target="#infoCarousel"
+                                            <li data-target="#infoCarousel{{$data['id']}}"
                                                 data-slide-to="1"></li>
-                                            <li data-target="#infoCarousel"
+                                            <li data-target="#infoCarousel{{$data['id']}}"
                                                 data-slide-to="2"></li>
                                         </ol>
                                         <div class="carousel-inner">
@@ -57,13 +57,13 @@
                                             @endforeach
                                         </div>
 
-                                        <a class="left carousel-control" href="#infoCarousel"
+                                        <a class="left carousel-control" href="#infoCarousel{{$data['id']}}"
                                            role="button"
                                            data-slide="prev">
                                             <span class="glyphicon glyphicon-chevron-left"></span>
                                         </a>
 
-                                        <a class="right carousel-control" href="#infoCarousel"
+                                        <a class="right carousel-control" href="#infoCarousel{{$data['id']}}"
                                            role="button"
                                            data-slide="next">
                                             <span class="glyphicon glyphicon-chevron-right"></span>
